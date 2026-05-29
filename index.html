@@ -129,7 +129,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -138,7 +138,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -155,6 +155,606 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/05/25/node/01-nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/25/node/01-nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Node.js 初识</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-05-25 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-25T00:00:00+08:00">2026-05-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-05-29 17:50:01" itemprop="dateModified" datetime="2026-05-29T17:50:01+08:00">2026-05-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Node-js-初识"><a href="#Node-js-初识" class="headerlink" title="Node.js 初识"></a>Node.js 初识</h1><h2 id="1-Node-js-简介"><a href="#1-Node-js-简介" class="headerlink" title="1. Node.js 简介"></a>1. Node.js 简介</h2><h3 id="1-1-什么是-Node-js"><a href="#1-1-什么是-Node-js" class="headerlink" title="1.1 什么是 Node.js"></a>1.1 什么是 Node.js</h3><p>Node.js 是一个基于 Chrome V8 引擎构建的 JavaScript 运行环境，它让 JavaScript 不再局限于浏览器，而可以在服务器端、命令行、桌面应用等环境中运行。</p>
+<ul>
+<li>Node.js 提供了文件系统、网络、进程等底层能力。</li>
+<li>它不是框架，而是一个运行时环境。</li>
+<li>Node.js 中没有浏览器的 DOM、BOM 和窗口对象。</li>
+</ul>
+<p>官网地址：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a></p>
+<h3 id="1-2-Node-js-的应用场景"><a href="#1-2-Node-js-的应用场景" class="headerlink" title="1.2 Node.js 的应用场景"></a>1.2 Node.js 的应用场景</h3><p>Node.js 的生态非常丰富，常见的应用场景包括：</p>
+<ul>
+<li>构建 Web 服务、RESTful API</li>
+<li>开发命令行工具和自动化脚本</li>
+<li>使用 Electron 构建跨平台桌面应用</li>
+<li>使用 Socket 实现实时通信</li>
+<li>处理文件、流和后台任务</li>
+</ul>
+<p>一些常见框架：</p>
+<ul>
+<li>Express：轻量级 Web 框架</li>
+<li>Koa：更现代的中间件框架</li>
+<li>NestJS：结构化的企业级后端框架</li>
+<li>Electron：桌面应用开发</li>
+</ul>
+<h3 id="1-3-为什么学习-Node-js"><a href="#1-3-为什么学习-Node-js" class="headerlink" title="1.3 为什么学习 Node.js"></a>1.3 为什么学习 Node.js</h3><p>对于熟悉前端的开发者来说，学习 Node.js 有以下优势：</p>
+<ul>
+<li>同一种语言（JavaScript）实现前端和后端开发</li>
+<li>可以快速上手后端基本能力</li>
+<li>npm 生态提供大量实用包</li>
+<li>能够扩展为全栈开发能力</li>
+</ul>
+<h3 id="1-4-node-js的学习路径"><a href="#1-4-node-js的学习路径" class="headerlink" title="1.4 node.js的学习路径"></a>1.4 node.js的学习路径</h3><p>javascript基础语法+ Node.js内置模块（fs,path,http等）+ 第三方API模块（express&#x2F;msSql等）</p>
+<h2 id="2-Node-js-环境安装与验证"><a href="#2-Node-js-环境安装与验证" class="headerlink" title="2. Node.js 环境安装与验证"></a>2. Node.js 环境安装与验证</h2><h3 id="2-1-安装-Node-js"><a href="#2-1-安装-Node-js" class="headerlink" title="2.1 安装 Node.js"></a>2.1 安装 Node.js</h3><p>访问官网：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a></p>
+<p>建议安装 LTS（长期支持）版本，适合生产环境和学习使用；Current 版本适合尝鲜新特性，但可能出现兼容问题。</p>
+<h3 id="2-2-验证安装"><a href="#2-2-验证安装" class="headerlink" title="2.2 验证安装"></a>2.2 验证安装</h3><p>打开终端后执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<p>如果返回版本号，则说明安装成功。</p>
+<h3 id="2-3-运行第一个程序"><a href="#2-3-运行第一个程序" class="headerlink" title="2.3 运行第一个程序"></a>2.3 运行第一个程序</h3><p>创建文件 <code>hello.js</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hello Node.js&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>终端执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node hello.js</span><br></pre></td></tr></table></figure>
+
+<p>你会看到输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello Node.js</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-终端常用操作"><a href="#2-4-终端常用操作" class="headerlink" title="2.4 终端常用操作"></a>2.4 终端常用操作</h3><ul>
+<li><code>↑</code>：查看上一条命令</li>
+<li><code>Tab</code>：路径或文件名自动补全</li>
+<li><code>Esc</code>：清空当前输入</li>
+<li><code>cls</code>：清空终端内容</li>
+</ul>
+<h2 id="3-fs-文件系统模块"><a href="#3-fs-文件系统模块" class="headerlink" title="3. fs 文件系统模块"></a>3. fs 文件系统模块</h2><h3 id="3-1-什么是-fs-模块"><a href="#3-1-什么是-fs-模块" class="headerlink" title="3.1 什么是 fs 模块"></a>3.1 什么是 fs 模块</h3><p><code>fs</code> 是 Node.js 官方提供的文件系统模块，用于读取、写入、删除、重命名文件等操作。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-读取文件内容"><a href="#3-2-读取文件内容" class="headerlink" title="3.2 读取文件内容"></a>3.2 读取文件内容</h3><p><code>fs.readFile()</code> 是异步读取文件的常用方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">readFile</span>(path[, options], callback);</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<ul>
+<li>参数1：必选，字符串，表示文件路径；</li>
+<li>参数2：可选，表示以什么编码格式来读取文件</li>
+<li>参数3：必选，文件读取完成后，通过回调函数拿到读取的结果<br>示例：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&#x27;./files/1.txt&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;读取文件失败：&#x27;</span> + err.<span class="property">message</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;读取文件成功：&#x27;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果读取成功，<code>err</code> 为 <code>null</code>；如果失败，<code>err</code> 是错误对象。</p>
+<h3 id="3-3-写入文件内容"><a href="#3-3-写入文件内容" class="headerlink" title="3.3 写入文件内容"></a>3.3 写入文件内容</h3><p><code>fs.writeFile()</code> 可以向指定文件写入内容，如果文件不存在则会创建。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">writeFile</span>(file, data[, options], callback);</span><br></pre></td></tr></table></figure>
+<p>参数解读</p>
+<ul>
+<li>参数1：必选参数，要写入的文件路径</li>
+<li>参数2：必选参数要写入的内容，可以是字符串或者Buffer对象</li>
+<li>参数3：可选参数，可以是一个对象或者一个字符串，表示编码方式，默认值为’utf-8’</li>
+<li>参数4：必选参数，文件写入完成后的回调函数，</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&#x27;./files/2.txt&#x27;</span>, <span class="string">&#x27;Hello Node.js&#x27;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;写入失败：&#x27;</span> + err.<span class="property">message</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件写入成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：<code>fs.writeFile()</code> 默认会覆盖目标文件中的内容。<br>fs.writeFile() 方法只能创建文件，不能创建路径。</p>
+</blockquote>
+<h3 id="3-4-同步方式和-Promise-方式"><a href="#3-4-同步方式和-Promise-方式" class="headerlink" title="3.4 同步方式和 Promise 方式"></a>3.4 同步方式和 Promise 方式</h3><p>Node.js 还支持同步读取：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = fs.<span class="title function_">readFileSync</span>(<span class="string">&#x27;./files/1.txt&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br></pre></td></tr></table></figure>
+
+<p>以及 Promise 版本：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>).<span class="property">promises</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">readFile</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> data = <span class="keyword">await</span> fs.<span class="title function_">readFile</span>(<span class="string">&#x27;./files/1.txt&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(err);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">readFile</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-练习：成绩整理"><a href="#3-5-练习：成绩整理" class="headerlink" title="3.5 练习：成绩整理"></a>3.5 练习：成绩整理</h3><p>任务：将 <code>成绩.txt</code> 中的内容读取并整理为 <code>成绩-ok.txt</code>，每行格式为：<code>姓名：成绩</code></p>
+<p>核心步骤：</p>
+<ol>
+<li>导入 <code>fs</code> 模块。</li>
+<li>使用 <code>fs.readFile()</code> 读取文件内容。</li>
+<li>判断是否读取失败。</li>
+<li>处理数据，生成标准格式结果。</li>
+<li>使用 <code>fs.writeFile()</code> 写入新文件。</li>
+</ol>
+<p>示例思路：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&#x27;./素材/成绩.txt&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>, <span class="keyword">function</span> (<span class="params">err, data</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件读取失败，&#x27;</span> + err.<span class="property">message</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件读取成功&#x27;</span>, data)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> arr = data.<span class="title function_">split</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> newArr = [];</span><br><span class="line">    arr.<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        newArr.<span class="title function_">push</span>(item.<span class="title function_">replace</span>(<span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;：&#x27;</span>))</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">let</span> newStr = newArr.<span class="title function_">join</span>(<span class="string">&#x27;\r\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    fs.<span class="title function_">writeFile</span>(<span class="string">&#x27;./files/成绩-ok.txt&#x27;</span>, newStr, <span class="keyword">function</span> (<span class="params">err</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件写入失败，&#x27;</span> + err.<span class="property">message</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件写入成功&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-6-相对路径与-dirname"><a href="#3-6-相对路径与-dirname" class="headerlink" title="3.6 相对路径与 __dirname"></a>3.6 相对路径与 __dirname</h3><p>运行 <code>node</code> 命令时，所有相对路径会以当前执行目录为基准，而不是当前文件所在目录。</p>
+<p>如果你希望文件路径始终基于当前脚本位置，可以使用 <code>__dirname</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> filePath = path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;files&#x27;</span>, <span class="string">&#x27;1.txt&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">readFile</span>(filePath, <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(err, data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-path-路径模块"><a href="#4-path-路径模块" class="headerlink" title="4. path 路径模块"></a>4. path 路径模块</h2><h3 id="4-1-path-模块简介"><a href="#4-1-path-模块简介" class="headerlink" title="4.1 path 模块简介"></a>4.1 path 模块简介</h3><p><code>path</code> 模块用于处理文件路径，支持跨平台的路径拼接和解析。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-path-join"><a href="#4-2-path-join" class="headerlink" title="4.2 path.join()"></a>4.2 path.join()</h3><p><code>path.join([...paths])</code> 可以把多个路径片段拼接成一个完整路径，并自动处理 <code>..</code> 和 <code>.</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> pathStr = path.<span class="title function_">join</span>(<span class="string">&#x27;/a&#x27;</span>, <span class="string">&#x27;/b/c&#x27;</span>, <span class="string">&#x27;../&#x27;</span>, <span class="string">&#x27;./d&#x27;</span>, <span class="string">&#x27;e&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(pathStr); <span class="comment">// Windows: \a\b\d\e</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pathStr2=path.<span class="title function_">join</span>(__dirname,<span class="string">&#x27;/files/1.txt&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(pathStr2) <span class="comment">// 输出：当前文件夹所处目录\files\1.txt</span></span><br></pre></td></tr></table></figure>
+
+<p>推荐使用 <code>path.join()</code> 拼接路径，而不是字符串拼接。</p>
+<h3 id="4-3-path-basename"><a href="#4-3-path-basename" class="headerlink" title="4.3 path.basename()"></a>4.3 path.basename()</h3><p><code>path.basename()</code> 获取路径的最后一部分，通常用于获取路径中的文件名称。<br><code>path.basename(path[,ext])</code><br>参数：</p>
+<ul>
+<li>path<string> 必选参数，表示一个路径的字符串</li>
+<li>ext <string> 可选参数，表示文件扩展名</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fpath = <span class="string">&#x27;a/b/c/index.html&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(path.<span class="title function_">basename</span>(fpath)); <span class="comment">// index.html</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(path.<span class="title function_">basename</span>(fpath, <span class="string">&#x27;.html&#x27;</span>)); <span class="comment">// index</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-path-extname"><a href="#4-4-path-extname" class="headerlink" title="4.4 path.extname()"></a>4.4 path.extname()</h3><p><code>path.extname(path)</code> 用于获取路径中的扩展名。</p>
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fpath = <span class="string">&#x27;a/b/c/index.html&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(path.<span class="title function_">extname</span>(fpath)); <span class="comment">// .html</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-5-综合案例-时钟案例"><a href="#4-5-综合案例-时钟案例" class="headerlink" title="4.5 综合案例-时钟案例"></a>4.5 综合案例-时钟案例</h3><h3 id="4-5-1-案例功能"><a href="#4-5-1-案例功能" class="headerlink" title="4.5.1 案例功能"></a>4.5.1 案例功能</h3><p>将素材下的<code>时钟.html</code> 页面，拆分成3个文件，分别是：</p>
+<ul>
+<li>index.css</li>
+<li>index.js</li>
+<li>index.html<br>并将拆分出来的3个文件存放在clock目录，保证打开ntml文件胡正常运行<br><img src="/image.png" alt="alt text"></li>
+</ul>
+<h3 id="4-5-2-实现步骤分析"><a href="#4-5-2-实现步骤分析" class="headerlink" title="4.5.2 实现步骤分析"></a>4.5.2 实现步骤分析</h3><ol>
+<li>导入模块，并创建两个正则表达式，来匹配style 和 script标签；</li>
+<li>使用fs模块，读取需要背出来的HTML文件</li>
+<li>自定义resolveCSS方法，写入index.css样式文件</li>
+<li>自定义resolveJS方法，处理并写入index.js脚本文件</li>
+<li>自定义resolveHTML方法，处理并写入index.html文件</li>
+</ol>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正则：匹配 HTML 中的 &lt;style&gt; 标签及其内容，用于提取内联 CSS</span></span><br><span class="line"><span class="keyword">const</span> regStyle = <span class="regexp">/&lt;style&gt;[\s\S]*&lt;\/style&gt;/</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正则：匹配 HTML 中的 &lt;script&gt; 标签及其内容，用于提取内联 JavaScript</span></span><br><span class="line"><span class="keyword">const</span> regScript = <span class="regexp">/&lt;script&gt;[\s\S]*&lt;\/script&gt;/</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取 source HTML 文件，拆分出 CSS、JS 和 HTML 三个部分，分别写入 clock 目录</span></span><br><span class="line">fs.<span class="title function_">readFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;/素材/时钟.html&#x27;</span>), <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件读取失败，&#x27;</span> + err.<span class="property">message</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将内联 style 提取成独立 CSS 文件</span></span><br><span class="line">    <span class="title function_">resolveCss</span>(data)</span><br><span class="line">    <span class="comment">// 将内联 script 提取成独立 JS 文件</span></span><br><span class="line">    <span class="title function_">resolveJs</span>(data)</span><br><span class="line">    <span class="comment">// 将原始 HTML 中的内联样式和脚本替换为外链引用</span></span><br><span class="line">    <span class="title function_">resolveHtml</span>(data)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 从 HTML 中提取 &lt;style&gt; 内容，并写入独立 CSS 文件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">resolveCss</span>(<span class="params">htmlStr</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> r = regStyle.<span class="title function_">exec</span>(htmlStr);</span><br><span class="line">    <span class="keyword">const</span> newStyle = r[<span class="number">0</span>].<span class="title function_">replace</span>(<span class="regexp">/&lt;style&gt;|&lt;\/style&gt;/g</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    fs.<span class="title function_">writeFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;./clock/index.css&#x27;</span>), newStyle, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件写入失败，&#x27;</span> + err.<span class="property">message</span>)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;CSS 文件写入成功&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 从 HTML 中提取 &lt;script&gt; 内容，并写入独立 JS 文件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">resolveJs</span>(<span class="params">htmlStr</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> r = regScript.<span class="title function_">exec</span>(htmlStr);</span><br><span class="line">    <span class="keyword">const</span> newScript = r[<span class="number">0</span>].<span class="title function_">replace</span>(<span class="regexp">/&lt;script&gt;|&lt;\/script&gt;/g</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    fs.<span class="title function_">writeFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;./clock/index.js&#x27;</span>), newScript, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件写入失败，&#x27;</span> + err.<span class="property">message</span>)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;JS 文件写入成功&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 将原始 HTML 中的内联 style 和 script 替换为外部资源引用，并写入独立 HTML 文件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">resolveHtml</span>(<span class="params">htmlStr</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> newHtml = htmlStr.<span class="title function_">replace</span>(regStyle, <span class="string">&#x27;&lt;link rel=&quot;stylesheet&quot; href=&quot;./index.css&quot;&gt;&#x27;</span>)</span><br><span class="line">        .<span class="title function_">replace</span>(regScript, <span class="string">&#x27;&lt;script src=&quot;./index.js&quot;&gt;&lt;/script&gt;&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    fs.<span class="title function_">writeFile</span>(path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;./clock/index.html&#x27;</span>), newHtml, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件写入失败，&#x27;</span> + err.<span class="property">message</span>)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件写入成功&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-6-其他常用方法"><a href="#4-6-其他常用方法" class="headerlink" title="4.6 其他常用方法"></a>4.6 其他常用方法</h3><ul>
+<li><code>path.resolve()</code>：生成绝对路径。</li>
+<li><code>path.normalize()</code>：规范化路径。</li>
+<li><code>path.dirname()</code>：获取目录名称。</li>
+</ul>
+<h1 id="5-http模块"><a href="#5-http模块" class="headerlink" title="5.http模块"></a>5.http模块</h1><h2 id="5-1-什么是-http-模块"><a href="#5-1-什么是-http-模块" class="headerlink" title="5.1 什么是 http 模块"></a>5.1 什么是 http 模块</h2><p><strong>基础概念回顾</strong></p>
+<ul>
+<li>客户端：网络节点中，负责消费资源的电脑 &#x2F; 设备。</li>
+<li>服务器：网络节点中，负责对外提供网络资源的电脑 &#x2F; 设备。</li>
+</ul>
+<p><strong>http 模块定义</strong></p>
+<ul>
+<li>http 模块是 Node.js 官方内置的、用于创建 Web 服务器的核心模块。</li>
+<li>通过 http.createServer() 方法，可快速将普通电脑变为 Web 服务器，对外提供 Web 资源服务。</li>
+</ul>
+<p><strong>模块导入方式</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="5-2-http-模块的作用与优势"><a href="#5-2-http-模块的作用与优势" class="headerlink" title="5.2 http 模块的作用与优势"></a>5.2 http 模块的作用与优势</h2><p><strong>传统 Web 服务器实现方式</strong><br>普通电脑需安装 IIS、Apache 等第三方 Web 服务器软件，才能对外提供 Web 服务。</p>
+<p><strong>Node.js 中的实现方式</strong><br>无需依赖 IIS、Apache 等第三方软件，仅通过 Node.js 内置的 http 模块，编写少量代码即可手写一个服务器软件，对外提供 Web 服务。</p>
+<h2 id="5-3-服务器相关核心概念"><a href="#5-3-服务器相关核心概念" class="headerlink" title="5.3 服务器相关核心概念"></a>5.3 服务器相关核心概念</h2><h3 id="5-3-1-IP-地址"><a href="#5-3-1-IP-地址" class="headerlink" title="5.3.1 IP 地址"></a>5.3.1 IP 地址</h3><p><strong>定义</strong>：互联网中每台计算机的唯一标识地址，具有唯一性，类比现实中的 “电话号码”。<br><strong>格式</strong>：采用点分十进制表示，形式为 a.b.c.d，其中 a&#x2F;b&#x2F;c&#x2F;d 均为 0~255 之间的整数，例如 192.168.1.1。<br><strong>关键说明</strong>：</p>
+<ul>
+<li>所有公网 Web 服务器都有独立 IP 地址，可通过 <code>ping 域名</code> 命令查看（如 <code>ping www.baidu.com</code>）。</li>
+<li>开发测试阶段，可使用 127.0.0.1 访问本地电脑上的服务，此时电脑既是客户端也是服务器。</li>
+</ul>
+<h3 id="5-3-2-域名与域名服务器（DNS）"><a href="#5-3-2-域名与域名服务器（DNS）" class="headerlink" title="5.3.2 域名与域名服务器（DNS）"></a>5.3.2 域名与域名服务器（DNS）</h3><p><strong>域名</strong>：IP 地址的字符化别名，解决 IP 地址不直观、难记忆的问题（如 <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> 对应百度服务器 IP）。<br><strong>DNS（域名服务器）</strong>：存储 IP 地址与域名的一一对应关系，负责将域名解析为 IP 地址，让用户可通过域名访问服务器。<br><strong>关键说明</strong>：</p>
+<ul>
+<li>仅使用 IP 地址也可正常访问服务器，域名仅为提升易用性。</li>
+<li>开发测试阶段，127.0.0.1 与 localhost 等价，均指向本地电脑，无使用区别。</li>
+</ul>
+<h3 id="5-3-3-端口号"><a href="#5-3-3-端口号" class="headerlink" title="5.3.3 端口号"></a>5.3.3 端口号</h3><p><strong>作用</strong>：一台电脑可同时运行多个 Web 服务，端口号用于区分不同服务，类比现实中的 “门牌号”，让请求能精准交付给对应服务处理。</p>
+<p><strong>关键说明</strong>：</p>
+<ul>
+<li>同一端口号不能同时被多个 Web 服务占用。</li>
+<li>HTTP 协议默认端口为 80，HTTPS 为 443，URL 中可省略 80 端口（如 <a href="http://example.com/">http://example.com</a> 等价于 <a href="http://example.com:80）。">http://example.com:80）。</a></li>
+</ul>
+<h2 id="5-4-创建最基本的-web-服务器"><a href="#5-4-创建最基本的-web-服务器" class="headerlink" title="5.4 创建最基本的 web 服务器"></a>5.4 创建最基本的 web 服务器</h2><h3 id="5-4-1-创建-web-服务器的基本步骤"><a href="#5-4-1-创建-web-服务器的基本步骤" class="headerlink" title="5.4.1 创建 web 服务器的基本步骤"></a>5.4.1 创建 web 服务器的基本步骤</h3><ol>
+<li>导入 http 模块</li>
+<li>创建服务器实例</li>
+<li>绑定 request 事件，监听请求</li>
+<li>调用 listen () 启动服务器</li>
+</ol>
+<h3 id="5-4-2-基础示例"><a href="#5-4-2-基础示例" class="headerlink" title="5.4.2 基础示例"></a>5.4.2 基础示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 导入模块</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 创建服务器实例</span></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 绑定 request 事件</span></span><br><span class="line">server.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;收到客户端请求&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 启动服务器</span></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">8080</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;服务器启动成功 http://127.0.0.1:8080&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4-3-req-请求对象"><a href="#5-4-3-req-请求对象" class="headerlink" title="5.4.3 req 请求对象"></a>5.4.3 req 请求对象</h3><p><strong>作用</strong>：获取客户端请求信息<br><strong>常用属性：</strong></p>
+<ul>
+<li><code>req.url</code>：请求的地址</li>
+<li><code>req.method</code>：请求方式（GET&#x2F;POST）</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> url = req.<span class="property">url</span></span><br><span class="line">  <span class="keyword">const</span> method = req.<span class="property">method</span></span><br><span class="line">  <span class="keyword">const</span> str = <span class="string">`地址：<span class="subst">$&#123;url&#125;</span>，方式：<span class="subst">$&#123;method&#125;</span>`</span></span><br><span class="line">  res.<span class="title function_">end</span>(str)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4-4-res-响应对象"><a href="#5-4-4-res-响应对象" class="headerlink" title="5.4.4 res 响应对象"></a>5.4.4 res 响应对象</h3><p><strong>作用</strong>：向客户端返回数据<br><strong>核心方法</strong>：</p>
+<ul>
+<li><code>res.end()</code>：返回内容并结束请求</li>
+<li><code>res.setHeader()</code>：设置响应头</li>
+</ul>
+<h3 id="5-4-5-解决中文乱码问题"><a href="#5-4-5-解决中文乱码问题" class="headerlink" title="5.4.5 解决中文乱码问题"></a>5.4.5 解决中文乱码问题</h3><p>当调用 res.end() 方法，向客户端发送中文内容的时候，会出现乱码问题，此时，需要手动设置响应头。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> str = <span class="string">`您请求的 url 地址是 <span class="subst">$&#123;req.url&#125;</span>, 请求的 method 类型是 <span class="subst">$&#123;req.method&#125;</span>`</span></span><br><span class="line">  res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;text/html; charset=utf-8&#x27;</span>)</span><br><span class="line">  res.<span class="title function_">end</span>(str)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-5-根据不同-URL-响应不同内容"><a href="#5-5-根据不同-URL-响应不同内容" class="headerlink" title="5.5 根据不同 URL 响应不同内容"></a>5.5 根据不同 URL 响应不同内容</h2><p><strong>实现步骤</strong>:</p>
+<ul>
+<li>获取请求 url</li>
+<li>设置默认 404</li>
+<li>判断地址，响应对应内容</li>
+<li>设置响应头</li>
+<li>返回结果</li>
+</ul>
+<p><strong>完整代码</strong>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> url = req.<span class="property">url</span></span><br><span class="line">  <span class="keyword">let</span> content = <span class="string">&#x27;&lt;h1&gt;404 Not found&lt;/h1&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (url === <span class="string">&#x27;/&#x27;</span> || url === <span class="string">&#x27;/index.html&#x27;</span>) &#123;</span><br><span class="line">    content = <span class="string">&#x27;&lt;h1&gt;首页&lt;/h1&gt;&#x27;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (url === <span class="string">&#x27;/about.html&#x27;</span>) &#123;</span><br><span class="line">    content = <span class="string">&#x27;&lt;h1&gt;关于页面&lt;/h1&gt;&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;text/html; charset=utf-8&#x27;</span>)</span><br><span class="line">  res.<span class="title function_">end</span>(content)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-6-案例：实现-clock-时钟的-web-服务器"><a href="#5-6-案例：实现-clock-时钟的-web-服务器" class="headerlink" title="5.6 案例：实现 clock 时钟的 web 服务器"></a>5.6 案例：实现 clock 时钟的 web 服务器</h2><h3 id="5-6-1-核心思路"><a href="#5-6-1-核心思路" class="headerlink" title="5.6.1 核心思路"></a>5.6.1 核心思路</h3><p>把文件的实际存放路径，作为每个资源的请求 url 地址。<br><strong>流程说明</strong>：</p>
+<ol>
+<li>浏览器访问地址：&#x2F;clock&#x2F;index.html、&#x2F;clock&#x2F;index.css、&#x2F;clock&#x2F;index.js</li>
+<li>服务器逻辑：把请求的 url 地址，当作读取文件的路径，去磁盘目录中读取文件</li>
+<li>磁盘目录结构：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">└── clock</span><br><span class="line">    ├── index.html</span><br><span class="line">    ├── index.css</span><br><span class="line">    └── index.js</span><br></pre></td></tr></table></figure>
+<p>每个文件的实际存放路径：&#x2F;clock&#x2F;index.html、&#x2F;clock&#x2F;index.css、&#x2F;clock&#x2F;index.js</p>
+<ol start="4">
+<li>服务器读取文件内容（字符串），通过 res.end() 响应给客户端</li>
+<li>客户端收到的是文件存储的字符串内容，而非文件本身</li>
+<li>服务器充当的角色就是一个字符串的搬运工</li>
+</ol>
+<h3 id="5-6-2-实现步骤"><a href="#5-6-2-实现步骤" class="headerlink" title="5.6.2 实现步骤"></a>5.6.2 实现步骤</h3><p>① 导入需要的模块(http,fs,path)<br>② 创建基本的 web 服务器<br>③ 将资源的请求 url 地址映射为文件的存放路径<br>④ 读取文件内容并响应给客户端<br>⑤ 优化资源的请求路径</p>
+<p><strong>代码示例</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = http.<span class="title function_">createServer</span>();</span><br><span class="line"></span><br><span class="line">server.<span class="title function_">on</span>(<span class="string">&quot;request&quot;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> fpath = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (req.<span class="property">url</span> === <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">        fpath = path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;/clock/index.html&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        fpath = path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;/clock&#x27;</span>, req.<span class="property">url</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fs.<span class="title function_">readFile</span>(fpath, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            <span class="keyword">return</span> res.<span class="title function_">end</span>(<span class="string">&#x27;404 Not Found&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        res.<span class="title function_">end</span>(data);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">80</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;server running at http://127.0.0.1&quot;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="6-小结"><a href="#6-小结" class="headerlink" title="6. 小结"></a>6. 小结</h2><p>这篇笔记覆盖了 Node.js 的基本概念、安装与运行、<code>fs</code> 文件操作、<code>path</code> 路径处理，<code>http</code>服务器 等核心内容。</p>
+<p>学习 Node.js 时，建议先掌握：</p>
+<ul>
+<li>JavaScript 基础语法</li>
+<li>Node.js 运行环境与终端操作</li>
+<li>核心模块 <code>fs</code>、<code>path</code>、<code>http</code></li>
+<li>异步回调与 Promise&#x2F;async-await</li>
+</ul>
+<p>后续可以继续学习：</p>
+<ul>
+<li>Express&#x2F;Koa Web 框架</li>
+<li>数据库连接与 ORM</li>
+<li>事件循环和性能优化</li>
+<li>模块化开发与项目结构</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/05/01/2026/AI%E5%B7%A5%E5%85%B7-cursor%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/01/2026/AI%E5%B7%A5%E5%85%B7-cursor%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Cursor 使用指南：从入门到精通的 AI 编程实战手册</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-05-01 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-01T00:00:00+08:00">2026-05-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-05-26 17:06:21" itemprop="dateModified" datetime="2026-05-26T17:06:21+08:00">2026-05-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">技术教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 AI 技术重塑软件开发的浪潮中，Cursor 凭借其强大的 AI 编程能力，正在成为开发者们装机必备的效率神器。作为一款基于 VS Code 深度定制的 AI 原生代码编辑器，Cursor 不仅完美继承了 VS Code 的生态，更通过深度集成 GPT-4、Claude 3.5 等先进大语言模型，彻底改变了我们写代码的方式。本指南将为您系统介绍 Cursor 的核心功能与使用规范。</p>
+<h4 id="一、Cursor-是什么：重新定义-AI-编程"><a href="#一、Cursor-是什么：重新定义-AI-编程" class="headerlink" title="一、Cursor 是什么：重新定义 AI 编程"></a>一、Cursor 是什么：重新定义 AI 编程</h4><p>Cursor 是一款深度集成人工智能的代码编辑器，其界面与操作逻辑高度兼容 VS Code，但内核进行了全面重构。</p>
+<p>对比传统的 VS Code + Copilot 组合，Copilot 仅仅是提供“智能补全”的插件，而 Cursor 则是真正的“AI 协作者”。它具备全代码库感知能力，能够读取文件、搜索代码库、执行终端命令，甚至自主规划和迭代修改代码。无论你是全栈开发者、独立创业者，还是想提升效率的编程新手，Cursor 都能帮你将自然语言的想法直接转化为可运行的现实。</p>
+<h4 id="二、安装与基础配置：打造你的专属-AI-搭档"><a href="#二、安装与基础配置：打造你的专属-AI-搭档" class="headerlink" title="二、安装与基础配置：打造你的专属 AI 搭档"></a>二、安装与基础配置：打造你的专属 AI 搭档</h4><p>Cursor 的安装非常便捷，支持 Windows、macOS 和 Linux 系统。你只需前往 Cursor 官网（cursor.com），下载对应的安装包即可像普通软件一样完成安装。</p>
+<p>安装完成后首次启动，Cursor 会提示是否从 VS Code 导入配置。点击确认，它就能一键迁移你原有的插件、主题和快捷键设置，真正做到零成本切换。</p>
+<p>对于初次使用的开发者，建议完成以下两项关键配置：</p>
+<ol>
+<li><strong>中文界面设置</strong>：按下 <code>Ctrl + Shift + P</code>（Mac 为 <code>Cmd + Shift + P</code>）打开命令面板，输入 <code>Configure Display Language</code>，选择“中文(简体)”并重启编辑器，界面就会变得非常亲切。</li>
+<li><strong>模型选择</strong>：进入设置中的 Models 选项，你可以根据需求灵活切换底层模型。处理复杂编程任务首选 Claude Sonnet 系列，通用任务可选用 GPT-4o，如果对隐私极其敏感，也可以配置本地模型。</li>
+</ol>
+<h4 id="三、掌握四大核心快捷键：效率翻倍的秘密武器"><a href="#三、掌握四大核心快捷键：效率翻倍的秘密武器" class="headerlink" title="三、掌握四大核心快捷键：效率翻倍的秘密武器"></a>三、掌握四大核心快捷键：效率翻倍的秘密武器</h4><p>Cursor 的强大之处在于将 AI 能力无缝融入到了编码的每一个环节。熟练掌握以下四个核心快捷键，就能解决 80% 的日常编码需求：</p>
+<ul>
+<li><strong>Tab（智能补全）</strong>：这绝不是普通的单行补全。Cursor 会根据你的上下文、注释甚至函数命名，预测你接下来整段代码的意图。输入一行注释，按下 Tab，它就能直接生成包含完整逻辑的代码块。</li>
+<li><strong>Ctrl + K（生成与编辑代码）</strong>：将光标停留在空行或选中一段已有代码，按下 <code>Ctrl + K</code>（Mac 为 <code>Cmd + K</code>），即可唤起 AI 输入框。你可以用自然语言指令让 AI 从零生成组件，或者对选中的代码进行重构、添加注释、查找 Bug。</li>
+<li><strong>Ctrl + L（侧边栏聊天）</strong>：唤起侧边栏的 AI 对话面板。你可以针对当前文件或整个项目提问，例如“解释这段代码的作用”、“帮我分析项目架构”，AI 会基于上下文给出精准回答。</li>
+<li><strong>Ctrl + I（Composer 快速交互）</strong>：快速唤起 Composer 对话框。与侧边栏聊天不同，Composer 具有编辑整个项目内容的能力，适合进行跨文件的代码生成和修改。</li>
+</ul>
+<h4 id="四、进阶模式：Agent-与规划模式的智能协作"><a href="#四、进阶模式：Agent-与规划模式的智能协作" class="headerlink" title="四、进阶模式：Agent 与规划模式的智能协作"></a>四、进阶模式：Agent 与规划模式的智能协作</h4><p>除了基础功能，Cursor 还提供了更高级的智能体模式，能够应对复杂的开发场景：</p>
+<ul>
+<li><strong>Agent 模式（智能编程代理）</strong>：这是 Cursor 最强大的功能之一。它具备自主决策和端到端执行的能力。你只需给出一个模糊的复杂需求（如“重构用户认证逻辑，支持 OAuth 登录”），它就能自主搜索代码库、理解文件依赖关系，并跨文件自动创建和修改代码，相当于一个全职的编程助手。核心原则是：让 Agent 自己搜索上下文，不要手动标记太多文件！</li>
+<li><strong>规划模式（Plan Mode）</strong>：按下 <code>Shift + Tab</code> 可以激活规划模式。大多数开发者拿到需求容易直接写代码，结果写到一半发现方向错误。规划模式强制 AI 先思考、再行动。它会分析代码库、提出澄清问题、制定详细的分步骤实现方案（以 Markdown 文件保存在 <code>.cursor/plans/</code> 目录），等你确认无误后再开始执行，极大降低了返工率。</li>
+</ul>
+<h4 id="五、避坑指南与注意事项"><a href="#五、避坑指南与注意事项" class="headerlink" title="五、避坑指南与注意事项"></a>五、避坑指南与注意事项</h4><p>在使用 Cursor 享受高效编程的同时，有几点建议值得注意：</p>
+<ol>
+<li><strong>代码审查不能省</strong>：AI 生成的代码虽然高效，但难免会有理解偏差。涉及核心业务逻辑、安全性或高性能要求的代码，务必进行人工审查。Cursor 是副驾驶，你才是掌握方向盘的司机。</li>
+<li><strong>隐私与数据安全</strong>：Cursor 的 AI 功能需要将代码上下文发送到云端进行处理。如果你在公司内网开发，或者处理包含公司机密、敏感用户数据的代码，请务必先确认公司的信息安全规范，避免数据泄露风险。</li>
+<li><strong>硬件要求</strong>：虽然 Cursor 对配置要求不算苛刻，但如果经常需要它分析整个项目的上下文（Codebase 索引），建议电脑的内存保持在 16GB 或以上，以获得更流畅的体验。</li>
+<li><strong>避免盲目依赖</strong>：对于简单的增删改查或重复性代码，Cursor 是神器；但对于需要深度思考的算法设计或架构选型，建议先自己理清思路，再让 AI 辅助实现，避免长期依赖导致自身编程能力退化。</li>
+</ol>
+<p>Cursor 正在重新定义编程的效率上限。从简单的代码补全到复杂的架构生成，它不仅仅是一个工具，更像是一位随时待命的资深技术合伙人。如果你还在一行行辛苦敲代码，不妨现在就下载体验，感受这场 AI 带来的效率革命！</p>
+<p><img src="/image.png" alt="alt text"></p>
+<p><img src="/image-1.png" alt="alt text"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/04/28/flex%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/04/28/flex%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80-md/" class="post-title-link" itemprop="url">flex弹性布局.md</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-04-28 14:41:01" itemprop="dateCreated datePublished" datetime="2026-04-28T14:41:01+08:00">2026-04-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/04/26/2026/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/04/26/2026/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">大模型应用开发技术</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-04-26 00:00:00" itemprop="dateCreated datePublished" datetime="2026-04-26T00:00:00+08:00">2026-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-04-28 14:32:57" itemprop="dateModified" datetime="2026-04-28T14:32:57+08:00">2026-04-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="客户问题"><a href="#客户问题" class="headerlink" title="客户问题"></a>客户问题</h3><ol>
+<li>性能：大模型响应为什么这么慢</li>
+<li>我们能不能养孩子一样来训练一个专属自己的模型</li>
+<li>基于外部数据的分析总结，你如何确认它是准确的？</li>
+</ol>
+<p>合规问题：</p>
+<p>数据出境：open ai数据会不会出境<br>输入合规：输入内容不符合公司要求怎么办<br>输出合规：模型回答内容会不会含有暴力等社会不提倡的内容</p>
+<p>适配问题：<br>大模型的maxtoken有限如何跨越？</p>
+<h3 id="什么是大模型："><a href="#什么是大模型：" class="headerlink" title="什么是大模型："></a>什么是大模型：</h3><p>强逻辑数据+神经网络算法&#x3D;大模型<br>高等数学+计算机科学&#x3D;大模型</p>
+<p>高等数学：通过大量数据得到一个趋势；</p>
+<p>大模型原理：</p>
+<p>chatGPT:<br>chatGpt不是基于事实，而是基于语言模型的，事实对他来说不重要，对他重要的是他能读懂你的问题，并按照一定的套路回答你的问题；<br>因为是基于套路的回答，并不能保证内容是对的，他的目标是找到精彩的套路。于是会发现，你的内容组织能力和表述还不错。久了就会发现写的代码页</p>
+<p>什么是大模型：是指在训练的过程中使用大量数据的人工智能模型，他具有强大的处理信息、解析语言、数据分析和问题解决能力，可以在理解语境、生成文本、支持决策等多方面提工帮助。<br>大模型是用大量的强逻辑数据通过训练形成套路，对符合某个套路的问题，他能组合成漂亮的答案。</p>
+<p>和传统的软件的区别：</p>
+<p>传统软件：<br>可部署，可开发，过程可监控，结果可测量</p>
+<p>大模型：<br>可部署，可开发，过程可监控（完全不可以），结果可测量（满足一定条件可以）</p>
+<p>置信问题：<br>为什么慢？有大量的数据所以慢；<br>能不能当孩子养？可以，但是训练和运维需要大量的算力资源；<br>大量强逻辑数据和大规模训练得到的套路是报错无限趋近的基石，<br>他本身是基于微积分的无限趋近，无法用景点数据的方式粗暴的给出等于或不等于；</p>
+<p>合规问题：<br>azure open ai的数据会不会出境？会的，微软开放的区域不包含大中华区；<br>输入内容不符合公司要求：是一个传统的敏感词过滤的问题，各个平台都有响应的方案；<br>技术：DFA（有穷自动机），embeding衍生（余弦相似度或者欧式距离）；训练敏感字模型；<br>关于非法内容屏蔽，哥大模型厂商都会有说明；自训练模型需要自己处理；</p>
+<p>适配问题：<br>maxtoken产生是因为资源问题，如此大规模的计算，资源限制是必然的。如何跨越？思路就是分多次请求。<br>如何保证语义完整性？通过覆盖。举个简单的例子：langchain文本分割。</p>
+<p>例子：我今天去公园玩，然后去了电影院看电影；<br>chunk（分片）:<br>我今天去公园玩<br>然后去了电影院看电影</p>
+<p>chunk_overlap（覆盖）：<br>我今天去公园玩，然后去<br>然后去了电影院看电影</p>
+<p>AI应用开发需要掌握的能力<br>1.极强的逻辑推理能力<br>ai的特殊性使我们由原先的true or false 变成了be like,需要引导ai做出判断，所以开发自身就要具有较强的逻辑能力。<br>2.prompt提示工程<br>prompt提示工程很重要，ai交互工程师就是在写模型友好的prompt<br>3.ai client组件<br>相对来说，ai client组件比较传统了，但开发者也需要学习，对开发者而言，这种传统代码学习反而是最简单的。</p>
+<p>成果：<br>AI Copilot:覆盖软体内部多场景，同意服务，智能客服，照片，认识，营销，研发等<br>律师Copilot：文档文献解析，文档对比分析，意见分析，内容追问，业务场景应用<br>知识管理平台：独立知识库挂了，问答对管理，自动拆分问答对，ai对话流程编排和测试</p>
+<p>AI Copilot接入：<br>连接：连接用户，连接业务<br>集成：集成模型，集成组件<br>交换：验证交互，优化交互</p>
+<p>law Copilot研究：<br>跨越限制：跨越文本限制，跨越maxtoken限制；<br>验证能力：验证prompt组合，调优；<br>突破：尝试，解释，大模型输出</p>
+<p>ai生态搭建：先搭建一个小生态，快速迭代，成熟的就往外推；<br>构建复杂应用：基于kernel 和gpt4调度能力，尝试构建</p>
+<p>生态：思考<br>平台层接入我们的应用，提供sass服务；<br>高复杂度应用：一句话报表等<br>中低复杂度应用：只是库雷，文档生成类，分析总结类等；<br>模型连接器：接入我们能接入模型，加入负载均衡，然后再分发；</p>
+<p>赋能：<br>赋能的本质是只是互通，赋能是一个双赢的过程；<br>技术团队和业务团队的赋能，是通过两边的知识互换，相互一起成长；</p>
+<p>未来的研究方向：<br>AI发展方向：<br>ai原生能力持续跟进：<br> 新模型出现以及现有模型演进；泛用模型，垂类模型；<br> 自解释能力<br>ai生态构建：<br> 工具及框架<br> 能力平台：吸收好的想法，集成新的能力<br>ai落地持续研究：<br> 业务探索</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -684,6 +1284,199 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/01/css/flex%E5%B8%83%E5%B1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/04/01/css/flex%E5%B8%83%E5%B1%80/" class="post-title-link" itemprop="url">CSS Flexbox 弹性布局学习指南</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-01T00:00:00+08:00">2021-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-04-28 15:37:07" itemprop="dateModified" datetime="2026-04-28T15:37:07+08:00">2026-04-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">技术教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Flexbox弹性布局，又叫灵活布局，是现代前端开发中用于实现一维布局的核心工具。它极大简化了组件级布局的对齐、分布和顺序控制。</p>
+<h4 id="什么是-Flexbox？"><a href="#什么是-Flexbox？" class="headerlink" title="什么是 Flexbox？"></a>什么是 Flexbox？</h4><p>Flexbox 是一种一维布局模型，它允许容器内的子元素在主轴和交叉轴上灵活地排列、对齐和分配空间，即使它们的大小未知或动态变化。</p>
+<p>给父元素设置了 <code>display: flex</code> 属性，那么该元素就自动变成了<strong>容器</strong>，其直接子元素变成了<strong>项目</strong>。</p>
+<h4 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h4><p><strong>flex-direction</strong></p>
+<p>决定主轴的方向（即项目的排列方向）。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>row</code> (默认值)：主轴为水平方向，起点在左端。</li>
+<li><code>row-reverse</code>：主轴为水平方向，起点在右端。</li>
+<li><code>column</code>：主轴为垂直方向，起点在上沿。</li>
+<li><code>column-reverse</code>：主轴为垂直方向，起点在下沿。</li>
+</ul>
+<p><strong>flex-wrap</strong></p>
+<p>定义，如果一条轴线排不下，如何换行。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>nowrap</code> (默认值)：不换行。</li>
+<li><code>wrap</code>：换行，第一行在上方。</li>
+<li><code>wrap-reverse</code>：换行，第一行在下方。</li>
+</ul>
+<p><strong>flex-flow</strong></p>
+<p><code>flex-direction</code> 和 <code>flex-wrap</code> 的简写。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">flex-flow</span>: &lt;flex-direction&gt; &lt;flex-wrap&gt;;</span><br><span class="line">  <span class="comment">/* 例如 */</span></span><br><span class="line">  <span class="attribute">flex-flow</span>: row wrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>justify-content</strong></p>
+<p>定义了项目在主轴上的对齐方式。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around | space-evenly;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>flex-start</code> (默认值)：左对齐。</li>
+<li><code>flex-end</code>：右对齐。</li>
+<li><code>center</code>：居中。</li>
+<li><code>space-between</code>：两端对齐，项目之间的间隔都相等。</li>
+<li><code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
+</ul>
+<p><strong>align-items</strong></p>
+<p>定义项目在交叉轴上如何对齐。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>stretch</code> (默认值)：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+<li><code>flex-start</code>：交叉轴的起点对齐。</li>
+<li><code>flex-end</code>：交叉轴的终点对齐。</li>
+<li><code>center</code>：交叉轴的中点对齐。</li>
+<li><code>baseline</code>：项目的第一行文字的基线对齐。</li>
+</ul>
+<p><strong>align-content</strong></p>
+<p>定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h4><p>这些属性作用于 flex 容器的子元素上。</p>
+<p><strong>order</strong></p>
+<p>定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">order</span>: &lt;integer&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>flex-grow</strong></p>
+<p>定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-grow</span>: &lt;number&gt;; <span class="comment">/* default 0 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>flex-shrink</strong></p>
+<p>定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-shrink</span>: &lt;number&gt;; <span class="comment">/* default 1 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>flex-basis</strong></p>
+<p>定义了在分配多余空间之前，项目占据的主轴空间。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为 <code>auto</code>，即项目的本来大小。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-basis</span>: &lt;length&gt; | auto; <span class="comment">/* default auto */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>flex</strong></p>
+<p><code>flex-grow</code>, <code>flex-shrink</code> 和 <code>flex-basis</code> 的简写，默认值为 <code>0 1 auto</code>。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: none | [ &lt;<span class="string">&#x27;flex-grow&#x27;</span>&gt; &lt;<span class="string">&#x27;flex-shrink&#x27;</span>&gt;? || &lt;<span class="string">&#x27;flex-basis&#x27;</span>&gt; ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>align-self</strong></p>
+<p>允许单个项目有与其他项目不一样的对齐方式，可覆盖 <code>align-items</code> 属性。默认值为 <code>auto</code>，表示继承父元素的 <code>align-items</code> 属性。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">align-self</span>: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h4><p><strong>水平垂直居中</strong></p>
+<p>这是 Flexbox 最经典的用法之一。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.center-container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>; <span class="comment">/* 或其他高度 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>响应式卡片列表</strong></p>
+<p>使用 <code>flex-wrap</code> 和 <code>flex</code> 属性可以轻松实现响应式布局。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.card-list</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">  <span class="attribute">gap</span>: <span class="number">1rem</span>; <span class="comment">/* 项目间距 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card-item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">1</span> <span class="built_in">calc</span>(<span class="number">33.333%</span> - <span class="number">1rem</span>); <span class="comment">/* 每个项目占三分之一宽度，减去间距 */</span></span><br><span class="line">  <span class="attribute">min-width</span>: <span class="number">250px</span>; <span class="comment">/* 最小宽度，防止在小屏幕上过窄 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>自适应输入框</strong></p>
+<p>让输入框自动撑满剩余空间。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span> class=&quot;search-bar&quot;&gt;</span><br><span class="line">  &lt;<span class="selector-tag">button</span>&gt;搜索&lt;/<span class="selector-tag">button</span>&gt;</span><br><span class="line">  &lt;<span class="selector-tag">input</span> type=&quot;<span class="selector-tag">text</span>&quot; placeholder=&quot;请输入关键词&quot;&gt;</span><br><span class="line">&lt;/<span class="selector-tag">div</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.search-bar</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">gap</span>: <span class="number">0.5rem</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.search-bar</span> <span class="selector-tag">input</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>; <span class="comment">/* 自动占据剩余空间 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>固定 + 自动伸缩布局</strong></p>
+<p>实现侧边栏+主内容区的经典布局。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.app-layout</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">250px</span>; <span class="comment">/* 固定宽度250px，不伸缩 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.main-content</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>; <span class="comment">/* 自动占据剩余空间 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="常见陷阱与调试技巧"><a href="#常见陷阱与调试技巧" class="headerlink" title="常见陷阱与调试技巧"></a>常见陷阱与调试技巧</h4><p><code>min-width: auto</code> 的坑</p>
+<p>这是 99% 布的根局问题源。当 flex 项目内容过长时，它可能不会按预期缩小。</p>
+<p>解决方案：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.flex-item</span> &#123;</span><br><span class="line">  <span class="attribute">min-width</span>: <span class="number">0</span>; <span class="comment">/* 允许内容收缩 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>align-items: stretch</code>的意外效果</p>
+<p><code>align-items</code> 的默认值是 <code>stretch</code>，这经常不是你想要的效果。</p>
+<p>解决方案：明确设置 <code>align-items: flex-start</code>、<code>center</code> 或 <code>baseline</code>。</p>
+<p><strong>调试技巧</strong></p>
+<ul>
+<li>使用浏览器开发者工具：Chrome DevTools 的 Flexbox 调试器非常有用，可以可视化地看到各种属性的效果。</li>
+<li>临时添加边框：给容器和项目添加不同颜色的边框，可以清晰地看到它们的边界和空间分配。</li>
+<li>分步骤调试：先让布局工作，再优化样式。一次只改变一个属性，观察效果。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/31/2021-03-31-vue%E7%BB%84%E4%BB%B6%E9%97%B4%E4%BC%A0%E5%80%BC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -784,497 +1577,9 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/31/2021-03-31-vue%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晓娜的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 晓娜的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/31/2021-03-31-vue%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">vue路由模式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-31 15:14:23" itemprop="dateCreated datePublished" datetime="2021-03-31T15:14:23+08:00">2021-03-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-04-24 10:49:02" itemprop="dateModified" datetime="2026-04-24T10:49:02+08:00">2026-04-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>vue-router路由对象中，路由有两种模式：hash和history，而默认的是hash模式</p>
-<p>路由的核心：改变视图的同时不会像后端发出请求</p>
-<h3 id="hash路由"><a href="#hash路由" class="headerlink" title="hash路由"></a>hash路由</h3><p>原理：hash原理其实是浏览器监听了一个onhashchange的方法来改变页面的跳转的<br>特点：hash虽然出现在url中，但不会包含在HTTP请求中，对后端完全没有影响，因此改变hash不会重新加载页面。<br>缺点：只能改变#后面的参数来实现路由的跳转。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">windows.<span class="property">onhashchange</span> = <span class="keyword">function</span>(<span class="params">event</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">oldURL</span>,event.<span class="property">newURL</span>);</span><br><span class="line">  <span class="keyword">let</span> hash = location.<span class="property">hasg</span>  <span class="comment">//通过location对象来获取hash地址</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(hash)  <span class="comment">// #/notebooks/123456/list  地址从#号开始</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>因为hash发生变化的url都会被浏览器记录下来，从而会发现浏览器的前进后退都可以用。</p>
-<h3 id="history路由"><a href="#history路由" class="headerlink" title="history路由"></a>history路由</h3><p>原理：利用了HTML5 的History方法。 中新增的，不支持老旧浏览器。</p>
-<p>特点1：history模式包括back、forward、go三个方法，对应浏览器的前进，后退，跳转操作。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">history.<span class="title function_">go</span>(-<span class="number">2</span>); <span class="comment">//后退两次</span></span><br><span class="line">history.<span class="title function_">go</span>(<span class="number">2</span>);<span class="comment">//前进两次</span></span><br><span class="line">history.<span class="title function_">back</span>();<span class="comment">//后退</span></span><br><span class="line">history.<span class="title function_">forward</span>();前进</span><br></pre></td></tr></table></figure>
-
-<p>特点2：history模式可以修改替换历史状态，包括了pushState,replaceState两个方法，这两个方法接受三个参数：stateObj,title,url</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">history.<span class="title function_">pushState</span>(&#123;<span class="attr">color</span>:<span class="string">&#x27;red&#x27;</span>,<span class="string">&#x27;red&#x27;</span>,<span class="string">&#x27;red&#x27;</span>&#125;)</span><br><span class="line">history.<span class="title function_">back</span>();</span><br></pre></td></tr></table></figure>
-
-<p>通过pushstate把页面的状态保存在state对象中，当页面的url再变回这个url时，可以通过event.state取到这个state对象，从而可以对页面状态进行还原，这里的页面状态就是页面字体颜色，实际滚动条位置，阅读进度，组件的开关的这些页面状态都可以存储到state的里面</p>
-<p>缺点：history模式在dev阶段正常，但是在部署服务器的时候，需要在ng上配置相应的正向代理跳转，否则跳转会出错。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/31/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晓娜的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 晓娜的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/31/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">前端代码命名规范</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-31 14:09:23" itemprop="dateCreated datePublished" datetime="2021-03-31T14:09:23+08:00">2021-03-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2021-04-03 17:20:00" itemprop="dateModified" datetime="2021-04-03T17:20:00+08:00">2021-04-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/30/css/2021-03-2-css%E5%88%B6%E4%BD%9C%E7%82%AB%E9%85%B7%E7%9A%84%E6%9D%A1%E7%BA%B9%E8%83%8C%E6%99%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晓娜的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 晓娜的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/30/css/2021-03-2-css%E5%88%B6%E4%BD%9C%E7%82%AB%E9%85%B7%E7%9A%84%E6%9D%A1%E7%BA%B9%E8%83%8C%E6%99%AF/" class="post-title-link" itemprop="url">css制作炫酷的条纹背景</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-30 14:09:23" itemprop="dateCreated datePublished" datetime="2021-03-30T14:09:23+08:00">2021-03-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-04-27 17:21:37" itemprop="dateModified" datetime="2026-04-27T17:21:37+08:00">2026-04-27</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="1-实现不等宽背景条纹："><a href="#1-实现不等宽背景条纹：" class="headerlink" title="1. 实现不等宽背景条纹："></a>1. 实现不等宽背景条纹：</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(<span class="number">#a7d7db</span> <span class="number">70%</span>, <span class="number">#54cfcc</span> <span class="number">0%</span>);</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">100%</span> <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/css/budengkuantiaowen.png" alt="alt text"></p>
-<h3 id="2-实现瓷砖条纹背景："><a href="#2-实现瓷砖条纹背景：" class="headerlink" title="2. 实现瓷砖条纹背景："></a>2. 实现瓷砖条纹背景：</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg2</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">480px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(<span class="number">45deg</span>, <span class="number">#a7d7db</span> <span class="number">50%</span>, <span class="number">#54cfcc</span> <span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">40px</span> <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/css/cizhuantiaowen.png" alt="alt text"></p>
-<h3 id="3-草地背景："><a href="#3-草地背景：" class="headerlink" title="3. 草地背景："></a>3. 草地背景：</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg3</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">linear-gradient</span>(-<span class="number">45deg</span>,<span class="number">#0acf00</span> <span class="number">50%</span>,<span class="number">#a7d7db</span> <span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">background-size</span>:<span class="number">30px</span> <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/css/caodibeijing.png" alt="alt text"></p>
-<h3 id="4-斜条纹背景"><a href="#4-斜条纹背景" class="headerlink" title="4. 斜条纹背景"></a>4. 斜条纹背景</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg4</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">linear-gradient</span>(-<span class="number">45deg</span>,<span class="number">#54cfcc</span> <span class="number">25%</span>,<span class="number">#a7d7db</span> <span class="number">0</span>,<span class="number">#a7d7db</span> <span class="number">50%</span>,<span class="number">#54cfcc</span> <span class="number">0</span>,<span class="number">#54cfcc</span> <span class="number">75%</span>,<span class="number">#a7d7db</span> <span class="number">0</span>);</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">30px</span> <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/css/xietiaowen.png" alt="alt text"></p>
-<h3 id="5-单色斜条纹背景"><a href="#5-单色斜条纹背景" class="headerlink" title="5. 单色斜条纹背景"></a>5. 单色斜条纹背景</h3><p>（注：利用透明度及transparent）</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg5</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#fff</span> <span class="built_in">repeating-linear-gradient</span>(<span class="number">30deg</span>, <span class="built_in">rgba</span>(<span class="number">167</span>, <span class="number">215</span>, <span class="number">219</span>, <span class="number">0.5</span>),<span class="built_in">rgba</span>(<span class="number">167</span>, <span class="number">215</span>, <span class="number">219</span>, <span class="number">0.5</span>)<span class="number">15px</span>,transparent <span class="number">0</span>,transparent <span class="number">30px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/css/xietiaowen-danse.png" alt="alt text"></p>
-<h3 id="6-格子衫背景"><a href="#6-格子衫背景" class="headerlink" title="6. 格子衫背景"></a>6. 格子衫背景</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg6</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(<span class="number">90deg</span>, <span class="built_in">rgba</span>(<span class="number">167</span>, <span class="number">215</span>, <span class="number">219</span>, <span class="number">0.5</span>) <span class="number">50%</span>,transparent <span class="number">0</span>),<span class="built_in">linear-gradient</span>(<span class="built_in">rgba</span>(<span class="number">167</span>, <span class="number">215</span>, <span class="number">219</span>, <span class="number">0.5</span>) <span class="number">50%</span>,transparent <span class="number">0</span>);</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">30px</span> <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/css/gezishanbeijing.png" alt="alt text"></p>
-<h3 id="7-波点背景"><a href="#7-波点背景" class="headerlink" title="7. 波点背景"></a>7. 波点背景</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg7</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#a7d7db</span>;</span><br><span class="line">    <span class="attribute">background-image</span>:<span class="built_in">radial-gradient</span>(<span class="number">#fff</span> <span class="number">30%</span>,transparent <span class="number">0</span>),<span class="built_in">radial-gradient</span>(<span class="number">#fff</span> <span class="number">30%</span>,transparent <span class="number">0</span>);</span><br><span class="line">    <span class="attribute">background-size</span>:<span class="number">20px</span> <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">background-position</span>:<span class="number">0</span> <span class="number">0</span>,<span class="number">10px</span> <span class="number">10px</span>; <span class="comment">/* 必须是background-size尺寸的1/2 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/css/bodianbeijing.png" alt="alt text"></p>
-<h3 id="8-棋盘背景"><a href="#8-棋盘背景" class="headerlink" title="8. 棋盘背景"></a>8. 棋盘背景</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg8</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">background-image</span>:<span class="built_in">linear-gradient</span>(<span class="number">45deg</span>, <span class="number">#54cfcc</span> <span class="number">26%</span>,transparent <span class="number">0</span>,transparent <span class="number">75%</span>, <span class="number">#54cfcc</span> <span class="number">0</span>),</span><br><span class="line">    <span class="built_in">linear-gradient</span>(<span class="number">45deg</span>, <span class="number">#54cfcc</span> <span class="number">26%</span>,transparent <span class="number">0</span>,transparent <span class="number">75%</span>, <span class="number">#54cfcc</span> <span class="number">0</span>);</span><br><span class="line">    <span class="attribute">background-size</span>:<span class="number">30px</span> <span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">background-position</span>:<span class="number">0</span> <span class="number">0</span>,<span class="number">15px</span> <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/css/qipangezi.png" alt="alt text"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/20/2020-02-20-markdown/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晓娜的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 晓娜的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/20/2020-02-20-markdown/" class="post-title-link" itemprop="url">markdown语法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-02-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-20T00:00:00+08:00">2020-02-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-04-17 17:32:20" itemprop="dateModified" datetime="2026-04-17T17:32:20+08:00">2026-04-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">技术教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
-<h3 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h3><p>Markdown标题支持两种形式：</p>
-<p>（1）用#标记</p>
-<p>在标题开头加上1~6个#号表示一到六级标题。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">用法说明：</span><br><span class="line"># 一级标题</span><br><span class="line">### 三级标题</span><br><span class="line">###### 六级标题</span><br><span class="line">####### 七个#号</span><br></pre></td></tr></table></figure>
-
-<p>（2）用 &#x3D; 和 - 号标记</p>
-<p>在标题下加任意个 &#x3D; 代表一级标题，- 代表二级标题。</p>
-<p>注：标准语法一般在#后跟个空格再写文字</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">用法说明：</span><br><span class="line">一级标题</span><br><span class="line">========</span><br><span class="line">二级标题</span><br><span class="line">--------</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、字体"><a href="#二、字体" class="headerlink" title="二、字体"></a>二、字体</h3><p><strong>加粗</strong></p>
-<p>要加粗的文字左右分别用两个*号包起来</p>
-<p><strong>斜体</strong></p>
-<p>要倾斜的文字左右分别用一个*号包起来</p>
-<p><strong>斜体加粗</strong></p>
-<p>要倾斜和加粗的文字左右分别用三个*号包起来</p>
-<p><strong>删除线</strong></p>
-<p>要加删除线的文字左右分别用两个~~号包起来</p>
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*`</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br><span class="line">&lt;u&gt;带下划线文本&lt;/u&gt;</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p><strong>这是加粗的文字</strong></p>
-<p><em>这是倾斜的文字</em>&#96;</p>
-<p><em><strong>这是斜体加粗的文字</strong></em></p>
-<p><del>这是加删除线的文字</del></p>
-<p><u>带下划线文本</u></p>
-<h3 id="三、引用"><a href="#三、引用" class="headerlink" title="三、引用"></a>三、引用</h3><p>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;</p>
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<blockquote>
-<p>这是引用的内容</p>
-<blockquote>
-<p>这是引用的内容</p>
-<blockquote>
-<p>这是引用的内容</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h3 id="四、分割线"><a href="#四、分割线" class="headerlink" title="四、分割线"></a>四、分割线</h3><p>三个或者三个以上的 - 或者 * 都可以。</p>
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<hr>
-<hr>
-<hr>
-<hr>
-<h3 id="五、图片"><a href="#五、图片" class="headerlink" title="五、图片"></a>五、图片</h3><p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">![图片alt](图片地址 &#x27;&#x27;图片title&#x27;&#x27;)</span><br><span class="line"></span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure>
-
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![blockchain](https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=702257389,1274025419&amp;fm=27&amp;gp=0.jpg &quot;区块链&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>效果图：</p>
-<p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=702257389,1274025419&fm=27&gp=0.jpg" alt="blockchain" title="区块链"></p>
-<p>或者直接使用img标签：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=702257389,1274025419&amp;fm=27&amp;gp=0.jpg&quot; width=&quot;50%&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=702257389,1274025419&fm=27&gp=0.jpg" width="50%">
-
-<p>上传本地图片直接点击导航栏的图片标志，选择图片即可</p>
-<p>markdown格式追求的是简单、多平台统一。那么图片的存储就是一个问题，需要用图床，提供统一的外链，这样就不用在不同的平台去处理图片的问题了。才能做到书写一次，各处使用。<br>关于图床的选择我写了一篇文章，对网上存在的各种方法做了总结，需要的朋友可以看看。markdown图床</p>
-<h3 id="六、列表"><a href="#六、列表" class="headerlink" title="六、列表"></a>六、列表</h3><p>Markdown 支持 有序列表 和 无序列表。</p>
-<h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><p>无序列表使用 -、+ 或* 进行标记，建议选用减号-，符号和内容之间有一个空格。</p>
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<ul>
-<li>列表内容</li>
-</ul>
-<ul>
-<li>列表内容</li>
-</ul>
-<ul>
-<li>列表内容</li>
-</ul>
-<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><p>有序列表使用 数字加英文句点 来表示，有序列表数字会被顺序自动更正。</p>
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 列表内容</span><br><span class="line">2. 列表内容</span><br><span class="line">3. 列表内容</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<ol>
-<li>列表内容</li>
-<li>列表内容</li>
-<li>列表内容</li>
-</ol>
-<h4 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h4><p>上一级和下一级之间敲三个空格即可</p>
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- 一级无序列表内容</span><br><span class="line">   1. 列表内容</span><br><span class="line">   2. 列表内容</span><br><span class="line">   3. 列表内容</span><br><span class="line">- 一级无序列表内容</span><br><span class="line">   - 二级无序列表内容</span><br><span class="line">   - 二级无序列表内容</span><br><span class="line">   - 二级无序列表内容</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<ul>
-<li>一级无序列表内容<ol>
-<li>列表内容</li>
-<li>列表内容</li>
-<li>列表内容</li>
-</ol>
-</li>
-<li>一级无序列表内容<ul>
-<li>二级无序列表内容</li>
-<li>二级无序列表内容</li>
-<li>二级无序列表内容</li>
-</ul>
-</li>
-</ul>
-<h3 id="七、表格"><a href="#七、表格" class="headerlink" title="七、表格"></a>七、表格</h3><p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容。</span><br><span class="line">- 有一个就行，为了对齐，多加了几个</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br><span class="line">注：原生的语法两边都要用 | 包起来。此处省略</span><br></pre></td></tr></table></figure>
-
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">表头|类型|值</span><br><span class="line">---|:--:|---:</span><br><span class="line">name|String|测试</span><br><span class="line">status|Booble|true</span><br><span class="line">height|Number|160</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th align="center">类型</th>
-<th align="right">值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>name</td>
-<td align="center">String</td>
-<td align="right">测试</td>
-</tr>
-<tr>
-<td>status</td>
-<td align="center">Booble</td>
-<td align="right">true</td>
-</tr>
-<tr>
-<td>height</td>
-<td align="center">Number</td>
-<td align="right">160</td>
-</tr>
-</tbody></table>
-<h3 id="八、链接"><a href="#八、链接" class="headerlink" title="八、链接"></a>八、链接</h3><p>语法：<code>[链接名称](链接地址)</code> 或者 <code>&lt;链接地址&gt;</code></p>
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个链接 [菜鸟教程](https://www.runoob.com)</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<p>这是一个链接 <a target="_blank" rel="noopener" href="https://www.runoob.com/">菜鸟教程</a></p>
-<p>直接使用链接地址：</p>
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;https://www.runoob.com&gt;</span><br></pre></td></tr></table></figure>
-<p>效果：<br><a target="_blank" rel="noopener" href="https://www.runoob.com/">https://www.runoob.com</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
 
 </div>
   </main>
