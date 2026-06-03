@@ -129,7 +129,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -155,6 +155,339 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/06/01/node/02-nodejs-%E6%A8%A1%E5%9D%97%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/06/01/node/02-nodejs-%E6%A8%A1%E5%9D%97%E5%8C%96/" class="post-title-link" itemprop="url">Node.js学习指南-模块化</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-06-01 00:00:00" itemprop="dateCreated datePublished" datetime="2026-06-01T00:00:00+08:00">2026-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-06-03 15:40:14" itemprop="dateModified" datetime="2026-06-03T15:40:14+08:00">2026-06-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="1-模块化基础概念"><a href="#1-模块化基础概念" class="headerlink" title="1. 模块化基础概念"></a>1. 模块化基础概念</h2><h3 id="1-1-什么是模块化"><a href="#1-1-什么是模块化" class="headerlink" title="1.1 什么是模块化"></a>1.1 什么是模块化</h3><p>模块化是指解决一个复杂问题时，自顶向下逐层把系统划分成若干模块的过程。对于整个系统来说，模块是可组合、分解和更换的单元。</p>
+<p>在编程领域，模块化就是遵守固定的规则，把一个大文件拆成独立并互相依赖的多个小模块。</p>
+<h3 id="1-2-模块化的好处"><a href="#1-2-模块化的好处" class="headerlink" title="1.2 模块化的好处"></a>1.2 模块化的好处</h3><ul>
+<li>提高代码复用性</li>
+<li>提高代码可维护性</li>
+<li>支持按需加载</li>
+</ul>
+<h3 id="1-3-模块化规范"><a href="#1-3-模块化规范" class="headerlink" title="1.3 模块化规范"></a>1.3 模块化规范</h3><p>模块化规范就是对代码进行模块化拆分与组合时需要遵守的规则：</p>
+<ul>
+<li>规定使用什么语法格式来引用模块</li>
+<li>规定在模块中使用什么语法格式向外暴露成员</li>
+</ul>
+<p>这样做的好处是：降低沟通成本，方便模块间相互调用。</p>
+<h2 id="2-Node-js-中的模块化"><a href="#2-Node-js-中的模块化" class="headerlink" title="2. Node.js 中的模块化"></a>2. Node.js 中的模块化</h2><h3 id="2-1-模块的分类"><a href="#2-1-模块的分类" class="headerlink" title="2.1 模块的分类"></a>2.1 模块的分类</h3><p>Node.js 根据模块来源，将模块分为三类：</p>
+<ul>
+<li>内置模块：Node.js 官方提供，如 <code>fs</code>、<code>path</code>、<code>http</code> 等</li>
+<li>自定义模块：用户创建的每个 <code>.js</code> 文件，都是自定义模块</li>
+<li>第三方模块：由第三方开发，需先下载才能使用</li>
+</ul>
+<h3 id="2-2-加载模块：require"><a href="#2-2-加载模块：require" class="headerlink" title="2.2 加载模块：require()"></a>2.2 加载模块：require()</h3><p>使用 <code>require()</code> 方法可以加载三类模块：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 加载内置模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 加载自定义模块</span></span><br><span class="line"><span class="keyword">const</span> custom = <span class="built_in">require</span>(<span class="string">&#x27;./custom.js&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 加载第三方模块</span></span><br><span class="line"><span class="keyword">const</span> moment = <span class="built_in">require</span>(<span class="string">&#x27;moment&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：使用 <code>require()</code> 加载模块时，会执行被加载模块中的代码。</p>
+</blockquote>
+<h3 id="2-3-模块作用域"><a href="#2-3-模块作用域" class="headerlink" title="2.3 模块作用域"></a>2.3 模块作用域</h3><h4 id="2-3-1-什么是模块作用域"><a href="#2-3-1-什么是模块作用域" class="headerlink" title="2.3.1 什么是模块作用域"></a>2.3.1 什么是模块作用域</h4><p>和函数作用域类似，在自定义模块中定义的变量、方法等成员，只能在当前模块内被访问，这种模块级别的访问限制，叫做模块作用域。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// custom.js</span></span><br><span class="line"><span class="keyword">const</span> username = <span class="string">&#x27;张三&#x27;</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sayHello</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;大家好! 我是&#x27;</span> + username)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">const</span> custom = <span class="built_in">require</span>(<span class="string">&#x27;./custom.js&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(custom) <span class="comment">// 输出 &#123;&#125;，无法访问模块内的私有成员</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-2-模块作用域的好处"><a href="#2-3-2-模块作用域的好处" class="headerlink" title="2.3.2 模块作用域的好处"></a>2.3.2 模块作用域的好处</h4><ul>
+<li>防止全局变量污染</li>
+</ul>
+<h3 id="2-4-向外共享模块成员"><a href="#2-4-向外共享模块成员" class="headerlink" title="2.4 向外共享模块成员"></a>2.4 向外共享模块成员</h3><h4 id="2-4-1-module-对象"><a href="#2-4-1-module-对象" class="headerlink" title="2.4.1 module 对象"></a>2.4.1 module 对象</h4><p>每个 <code>.js</code> 自定义模块中都有一个 <code>module</code> 对象，存储了和当前模块有关的信息：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">module</span>)</span><br><span class="line"><span class="comment">// 包含 id、path、exports、filename 等属性</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-2-module-exports-对象"><a href="#2-4-2-module-exports-对象" class="headerlink" title="2.4.2 module.exports 对象"></a>2.4.2 module.exports 对象</h4><p>在自定义模块中，可以使用 <code>module.exports</code> 将成员共享出去。外界用 <code>require()</code> 导入模块时，得到的就是 <code>module.exports</code> 指向的对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义模块</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">username</span> = <span class="string">&#x27;zs&#x27;</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">sayHello</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hello!&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入模块</span></span><br><span class="line"><span class="keyword">const</span> m = <span class="built_in">require</span>(<span class="string">&#x27;./自定义模块.js&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(m) <span class="comment">// &#123; username: &#x27;zs&#x27;, sayHello: [Function] &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-3-共享成员的注意点"><a href="#2-4-3-共享成员的注意点" class="headerlink" title="2.4.3 共享成员的注意点"></a>2.4.3 共享成员的注意点</h4><p><code>require()</code> 导入模块时，结果永远以 <code>module.exports</code> 指向的对象为准。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 示例：多次修改 module.exports</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">username</span> = <span class="string">&#x27;zs&#x27;</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">sayHello</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 让 module.exports 指向新对象，会覆盖之前的导出</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">nickname</span>: <span class="string">&#x27;小黑&#x27;</span>,</span><br><span class="line">  <span class="title function_">sayHi</span>(<span class="params"></span>) &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-4-exports-对象"><a href="#2-4-4-exports-对象" class="headerlink" title="2.4.4 exports 对象"></a>2.4.4 exports 对象</h4><p>为了简化代码，Node 提供了 <code>exports</code> 对象：</p>
+<ul>
+<li>默认情况下，<code>exports</code> 和 <code>module.exports</code> 指向同一个对象</li>
+<li>最终共享结果，还是以 <code>module.exports</code> 指向的对象为准</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 exports 简化导出</span></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">username</span> = <span class="string">&#x27;zs&#x27;</span></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">age</span> = <span class="number">20</span></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">sayHello</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123; <span class="comment">/* ... */</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-5-exports-与-module-exports-的使用误区"><a href="#2-4-5-exports-与-module-exports-的使用误区" class="headerlink" title="2.4.5 exports 与 module.exports 的使用误区"></a>2.4.5 exports 与 module.exports 的使用误区</h4><p>常见情况及导出结果：</p>
+<table>
+<thead>
+<tr>
+<th>代码示例</th>
+<th>导出结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>exports.username = &#39;zs&#39;; module.exports = { gender: &#39;男&#39;, age: 22 }</code></td>
+<td><code>{ gender: &#39;男&#39;, age: 22 }</code></td>
+</tr>
+<tr>
+<td><code>module.exports.username = &#39;zs&#39;; exports = { gender: &#39;男&#39;, age: 22 }</code></td>
+<td><code>{ username: &#39;zs&#39; }</code></td>
+</tr>
+<tr>
+<td><code>exports.username = &#39;zs&#39;; module.exports.gender = &#39;男&#39;</code></td>
+<td><code>{ username: &#39;zs&#39;, gender: &#39;男&#39; }</code></td>
+</tr>
+</tbody></table>
+<p>建议：不要在同一个模块中同时使用 <code>exports</code> 和 <code>module.exports</code>，以避免混乱。</p>
+<h3 id="2-5-CommonJS-模块化规范"><a href="#2-5-CommonJS-模块化规范" class="headerlink" title="2.5 CommonJS 模块化规范"></a>2.5 CommonJS 模块化规范</h3><p>Node.js 遵循 CommonJS 规范，规定如下：</p>
+<ul>
+<li>每个模块内部，<code>module</code> 变量代表当前模块</li>
+<li><code>module</code> 变量是一个对象，它的 <code>exports</code> 属性（即 <code>module.exports</code>）是对外的接口</li>
+<li>加载某个模块，其实是加载该模块的 <code>module.exports</code> 属性，<code>require()</code> 方法用于加载模块</li>
+</ul>
+<h2 id="3-npm-与包"><a href="#3-npm-与包" class="headerlink" title="3. npm 与包"></a>3. npm 与包</h2><h3 id="3-1-包"><a href="#3-1-包" class="headerlink" title="3.1 包"></a>3.1 包</h3><h4 id="3-1-1-什么是包"><a href="#3-1-1-什么是包" class="headerlink" title="3.1.1 什么是包"></a>3.1.1 什么是包</h4><p>Node.js 中的第三方模块又叫做包。就像“电脑”和“计算机”是同一个意思，包和第三方模块也是同一个概念，只是叫法不同。</p>
+<h4 id="3-1-2-包的来源"><a href="#3-1-2-包的来源" class="headerlink" title="3.1.2 包的来源"></a>3.1.2 包的来源</h4><p>不同于 Node.js 中的内置模块与自定义模块，包是由第三方个人或团队开发出来的，免费供所有人使用。</p>
+<blockquote>
+<p>注意：Node.js 中的包通常是免费且开源的，不需要付费即可下载使用。</p>
+</blockquote>
+<h4 id="3-1-3-为什么需要包"><a href="#3-1-3-为什么需要包" class="headerlink" title="3.1.3 为什么需要包"></a>3.1.3 为什么需要包</h4><p>由于 Node.js 的内置模块仅提供了一些底层 API，项目开发时效率较低。<br>包是对内置模块的进一步封装，提供更高级、更方便的 API，大幅提升开发效率。</p>
+<h4 id="3-1-4-从哪里下载包"><a href="#3-1-4-从哪里下载包" class="headerlink" title="3.1.4 从哪里下载包"></a>3.1.4 从哪里下载包</h4><p>npm, Inc. 旗下的网站 <code>https://www.npmjs.com/</code> 是全球最大的包共享平台。<br>包的真实下载地址是 <code>https://registry.npmjs.org/</code>。</p>
+<blockquote>
+<p>说明：</p>
+<ul>
+<li>在 <code>https://www.npmjs.com/</code> 上搜索包</li>
+<li>从 <code>https://registry.npmjs.org/</code> 下载包</li>
+</ul>
+</blockquote>
+<h4 id="3-1-5-如何下载包"><a href="#3-1-5-如何下载包" class="headerlink" title="3.1.5 如何下载包"></a>3.1.5 如何下载包</h4><p>npm 的包管理工具会随着 Node.js 安装一起安装。<br>可以在终端中执行<code>npm -v</code> 命令，来查看npm包管理工具的版本号：</p>
+<h3 id="3-2-npm-初体验"><a href="#3-2-npm-初体验" class="headerlink" title="3.2 npm 初体验"></a>3.2 npm 初体验</h3><h4 id="3-2-1-格式化时间的传统做法"><a href="#3-2-1-格式化时间的传统做法" class="headerlink" title="3.2.1 格式化时间的传统做法"></a>3.2.1 格式化时间的传统做法</h4><ul>
+<li>创建格式化时间的自定义模块</li>
+<li>定义格式化时间的方法</li>
+<li>创建补零函数</li>
+<li>从自定义模块导出格式化时间函数</li>
+<li>导入该模块并调用函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 格式化时间的传统做法.js</span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">TIME</span> = <span class="built_in">require</span>(<span class="string">&#x27;./13.dateFormat&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dt = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="keyword">const</span> newDT = <span class="variable constant_">TIME</span>.<span class="title function_">dateFormat</span>(dt)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(newDT)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//dateFormat.js</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">dateFormat</span>(<span class="params">dtStr</span>) &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">padZero</span>(<span class="params">n</span>) &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  dateFormat</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2-格式化时间的高级做法"><a href="#3-2-2-格式化时间的高级做法" class="headerlink" title="3.2.2 格式化时间的高级做法"></a>3.2.2 格式化时间的高级做法</h4><ol>
+<li>使用 npm 包管理工具，在项目中安装格式化时间包 <code>moment</code></li>
+<li>使用 <code>require()</code> 导入该包</li>
+<li>参考 <code>moment</code> 官方 API 文档进行格式化</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> moment = <span class="built_in">require</span>(<span class="string">&#x27;moment&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> dt = <span class="title function_">moment</span>().<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD HH:mm:ss&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dt)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-3-安装包命令"><a href="#3-2-3-安装包命令" class="headerlink" title="3.2.3 安装包命令"></a>3.2.3 安装包命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install 包的完整名称</span><br><span class="line"><span class="comment"># 可简写为：</span></span><br><span class="line">npm i 完整的包名称</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-4-安装后新增文件"><a href="#3-2-4-安装后新增文件" class="headerlink" title="3.2.4 安装后新增文件"></a>3.2.4 安装后新增文件</h4><p>初次安装包后，项目目录下会新增：</p>
+<ul>
+<li><code>node_modules</code> 文件夹：存放已安装的包</li>
+<li><code>package-lock.json</code>：记录依赖详细信息（包名、版本、下载地址等）</li>
+</ul>
+<blockquote>
+<p>注意：不要手动修改 <code>node_modules</code> 或 <code>package-lock.json</code>，npm 会自动维护它们。</p>
+</blockquote>
+<h4 id="3-2-5-指定版本安装"><a href="#3-2-5-指定版本安装" class="headerlink" title="3.2.5 指定版本安装"></a>3.2.5 指定版本安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i moment@2.22.2</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-6-语义化版本规范"><a href="#3-2-6-语义化版本规范" class="headerlink" title="3.2.6 语义化版本规范"></a>3.2.6 语义化版本规范</h4><p>版本号形式为 <code>X.Y.Z</code>：</p>
+<ul>
+<li><code>X</code>：大版本</li>
+<li><code>Y</code>：功能版本</li>
+<li><code>Z</code>：Bug 修复版本</li>
+</ul>
+<p>规则：前一位升级时，后面位数归零。</p>
+<h3 id="3-3-包管理配置文件"><a href="#3-3-包管理配置文件" class="headerlink" title="3.3 包管理配置文件"></a>3.3 包管理配置文件</h3><h4 id="3-3-1-package-json-作用"><a href="#3-3-1-package-json-作用" class="headerlink" title="3.3.1 package.json 作用"></a>3.3.1 package.json 作用</h4><p><code>package.json</code> 是 npm 项目根目录必须存在的配置文件，用于记录：</p>
+<ul>
+<li>项目名称、版本、描述</li>
+<li>项目依赖的包</li>
+<li>开发依赖与生产依赖</li>
+</ul>
+<h4 id="3-3-2-多人协作问题"><a href="#3-3-2-多人协作问题" class="headerlink" title="3.3.2 多人协作问题"></a>3.3.2 多人协作问题</h4><p><code>node_modules</code> 文件夹体积庞大，通常不纳入版本控制。<br>团队共享代码时，只需保留 <code>package.json</code> 和 <code>package-lock.json</code>，然后执行依赖安装。</p>
+<h4 id="3-3-3-快速创建-package-json"><a href="#3-3-3-快速创建-package-json" class="headerlink" title="3.3.3 快速创建 package.json"></a>3.3.3 快速创建 package.json</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>目录名建议为英文，避免中文和空格</li>
+<li>安装包时，npm 会自动写入 <code>package.json</code></li>
+</ul>
+</blockquote>
+<h4 id="3-3-4-一次性安装所有依赖"><a href="#3-3-4-一次性安装所有依赖" class="headerlink" title="3.3.4 一次性安装所有依赖"></a>3.3.4 一次性安装所有依赖</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line"><span class="comment"># 简写：</span></span><br><span class="line">npm i</span><br></pre></td></tr></table></figure>
+
+<p>原理：npm 读取 <code>package.json</code> 中的 <code>dependencies</code> 字段，批量下载依赖。</p>
+<h4 id="3-3-5-卸载包"><a href="#3-3-5-卸载包" class="headerlink" title="3.3.5 卸载包"></a>3.3.5 卸载包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall moment</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>卸载后，npm 会自动从 <code>dependencies</code> 中移除该包记录。</p>
+</blockquote>
+<h4 id="3-3-6-devDependencies-节点"><a href="#3-3-6-devDependencies-节点" class="headerlink" title="3.3.6 devDependencies 节点"></a>3.3.6 devDependencies 节点</h4><ul>
+<li><code>dependencies</code>：生产依赖，开发与上线都需要</li>
+<li><code>devDependencies</code>：开发依赖，仅本地开发使用，上线时不需要</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i 包名 -D</span><br><span class="line">npm install 包名 --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-解决下载依赖速度慢的问题"><a href="#3-4-解决下载依赖速度慢的问题" class="headerlink" title="3.4 解决下载依赖速度慢的问题"></a>3.4 解决下载依赖速度慢的问题</h3><h4 id="3-4-1-为什么下载慢"><a href="#3-4-1-为什么下载慢" class="headerlink" title="3.4.1 为什么下载慢"></a>3.4.1 为什么下载慢</h4><p>默认从国外 <code>https://registry.npmjs.org/</code> 下载，网络传输路径较长，导致速度慢。</p>
+<h4 id="3-4-2-淘宝-NPM-镜像服务器"><a href="#3-4-2-淘宝-NPM-镜像服务器" class="headerlink" title="3.4.2 淘宝 NPM 镜像服务器"></a>3.4.2 淘宝 NPM 镜像服务器</h4><p>淘宝搭建了国内镜像，同步官方 npm 数据，国内下载速度更快。</p>
+<h4 id="3-4-3-切换-npm-镜像源"><a href="#3-4-3-切换-npm-镜像源" class="headerlink" title="3.4.3 切换 npm 镜像源"></a>3.4.3 切换 npm 镜像源</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br><span class="line">npm config <span class="built_in">set</span> registry=https://registry.npm.taobao.org/</span><br><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-4-nrm-工具"><a href="#3-4-4-nrm-工具" class="headerlink" title="3.4.4 nrm 工具"></a>3.4.4 nrm 工具</h4><p><code>nrm</code> 是管理 npm 镜像源的工具。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i nrm -g</span><br><span class="line">nrm <span class="built_in">ls</span></span><br><span class="line">nrm use taobao</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-包的分类"><a href="#3-5-包的分类" class="headerlink" title="3.5 包的分类"></a>3.5 包的分类</h3><h4 id="3-5-1-项目包"><a href="#3-5-1-项目包" class="headerlink" title="3.5.1 项目包"></a>3.5.1 项目包</h4><p>安装到项目目录的包称为项目包，分为：</p>
+<ul>
+<li>开发依赖包：<code>npm i 包名 -D</code>，写入 <code>devDependencies</code>，仅开发阶段使用</li>
+<li>核心依赖包：<code>npm i 包名</code>，写入 <code>dependencies</code>，开发与线上都需要</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i 包名 -D   <span class="comment"># 开发依赖包（记录到 devDependencies ）</span></span><br><span class="line">npm i 包名      <span class="comment"># 核心依赖包（记录到 dependencies ）</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-5-2-全局包"><a href="#3-5-2-全局包" class="headerlink" title="3.5.2 全局包"></a>3.5.2 全局包</h4><p>加 <code>-g</code> 参数即为全局安装，默认路径（Windows）：<code>C:\Users\用户目录\AppData\Roaming\npm\node_modules</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i 包名 -g</span><br><span class="line">npm uninstall 包名 -g</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>只有工具类包适合全局安装（提供终端命令）</li>
+<li>是否全局安装以官方文档为准</li>
+</ul>
+</blockquote>
+<h4 id="3-5-3-i5ting-toc-示例"><a href="#3-5-3-i5ting-toc-示例" class="headerlink" title="3.5.3 i5ting_toc 示例"></a>3.5.3 i5ting_toc 示例</h4><p>作用：将 Markdown 文档批量转换为 HTML 页面。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g i5ting_toc</span><br><span class="line">i5ting_toc -f md文件路径 -o</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-6-规范的包结构"><a href="#3-6-规范的包结构" class="headerlink" title="3.6 规范的包结构"></a>3.6 规范的包结构</h3><p>规范的包必须满足三条规则：</p>
+<ul>
+<li>包独立存放在单独文件夹内</li>
+<li>包根目录必须存在 <code>package.json</code></li>
+<li><code>package.json</code> 必填字段：<code>name</code>、<code>version</code>、<code>main</code></li>
+</ul>
+<p>参考文档：<a target="_blank" rel="noopener" href="https://yarnpkg.com/zh-Hans/docs/package-json">https://yarnpkg.com/zh-Hans/docs/package-json</a></p>
+<h3 id="3-7-开发自己的包（itheima-tools）"><a href="#3-7-开发自己的包（itheima-tools）" class="headerlink" title="3.7 开发自己的包（itheima-tools）"></a>3.7 开发自己的包（itheima-tools）</h3><h4 id="3-7-1-需要实现的功能"><a href="#3-7-1-需要实现的功能" class="headerlink" title="3.7.1 需要实现的功能"></a>3.7.1 需要实现的功能</h4><ul>
+<li>格式化日期</li>
+<li>转义 HTML 中的特殊字符</li>
+<li>还原 HTML 中的特殊字符</li>
+</ul>
+<h4 id="3-7-2-使用示例"><a href="#3-7-2-使用示例" class="headerlink" title="3.7.2 使用示例"></a>3.7.2 使用示例</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> itheima = <span class="built_in">require</span>(<span class="string">&#x27;itheima-utils&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dt = itheima.<span class="title function_">dateFormat</span>(<span class="keyword">new</span> <span class="title class_">Date</span>())</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dt) <span class="comment">// 输出 2020-01-20 10:09:45</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> htmlStr = <span class="string">&#x27;&lt;h1 style=&quot;color: red;&quot;&gt;你好! &amp;copy;&lt;span&gt;小黄! &lt;/span&gt;&lt;/h1&gt;&#x27;</span></span><br><span class="line"><span class="keyword">const</span> str = itheima.<span class="title function_">htmlEscape</span>(htmlStr)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> rawHTML = itheima.<span class="title function_">htmlUnEscape</span>(str)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(rawHTML)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-7-3-初始化包目录结构"><a href="#3-7-3-初始化包目录结构" class="headerlink" title="3.7.3 初始化包目录结构"></a>3.7.3 初始化包目录结构</h4><ol>
+<li>新建 <code>itheima-tools</code> 文件夹作为包根目录</li>
+<li>根目录创建三个文件：<ul>
+<li><code>package.json</code></li>
+<li><code>index.js</code></li>
+<li><code>README.md</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="3-7-4-初始化-package-json"><a href="#3-7-4-初始化-package-json" class="headerlink" title="3.7.4 初始化 package.json"></a>3.7.4 初始化 package.json</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;itheima-tools&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;提供了格式化时间、HTMLEscape的功能&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;keywords&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;itheima&quot;</span><span class="punctuation">,</span> <span class="string">&quot;dateFormat&quot;</span><span class="punctuation">,</span> <span class="string">&quot;escape&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-7-5-index-js-功能代码"><a href="#3-7-5-index-js-功能代码" class="headerlink" title="3.7.5 index.js 功能代码"></a>3.7.5 index.js 功能代码</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">dateFormat</span>(<span class="params">dateStr</span>) &#123;</span><br><span class="line">  <span class="comment">// 省略实现代码</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">padZero</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> n &gt; <span class="number">9</span> ? n : <span class="string">&#x27;0&#x27;</span> + n</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">htmlEscape</span>(<span class="params">htmlStr</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> htmlStr.<span class="title function_">replace</span>(<span class="regexp">/&lt;|&gt;|\&quot;|&amp;/g</span>, <span class="function">(<span class="params">match</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (match) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&lt;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&amp;lt;&#x27;</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&gt;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&amp;gt;&#x27;</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;\&quot;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&amp;quot;&#x27;</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&amp;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&amp;amp;&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">htmlUnEscape</span>(<span class="params">str</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> str.<span class="title function_">replace</span>(<span class="regexp">/&amp;lt;|&amp;gt;|&amp;quot;|&amp;amp;/g</span>, <span class="function">(<span class="params">match</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (match) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&amp;lt;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&lt;&#x27;</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&amp;gt;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&gt;&#x27;</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&amp;quot;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;\&quot;&#x27;</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&amp;amp;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&amp;&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  dateFormat,</span><br><span class="line">  htmlEscape,</span><br><span class="line">  htmlUnEscape</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-7-6-功能模块化拆分"><a href="#3-7-6-功能模块化拆分" class="headerlink" title="3.7.6 功能模块化拆分"></a>3.7.6 功能模块化拆分</h4><ul>
+<li>新建 <code>src</code> 文件夹</li>
+<li><code>src/dateFormat.js</code>：存放日期格式化代码</li>
+<li><code>src/htmlEscape.js</code>：存放 HTML 转义与还原代码</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">const</span> date = <span class="built_in">require</span>(<span class="string">&#x27;./src/dateFormat&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="built_in">escape</span> = <span class="built_in">require</span>(<span class="string">&#x27;./src/htmlEscape&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  ...date,</span><br><span class="line">  ...<span class="built_in">escape</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-7-7-编写-README-md"><a href="#3-7-7-编写-README-md" class="headerlink" title="3.7.7 编写 README.md"></a>3.7.7 编写 README.md</h4><p><code>README.md</code> 是包的说明文档，用于描述：</p>
+<ul>
+<li>安装方式</li>
+<li>导入方式</li>
+<li>功能用法</li>
+<li>注意事项</li>
+<li>开源协议</li>
+</ul>
+<h3 id="3-8-发布包"><a href="#3-8-发布包" class="headerlink" title="3.8 发布包"></a>3.8 发布包</h3><h4 id="3-8-1-注册-npm-账号"><a href="#3-8-1-注册-npm-账号" class="headerlink" title="3.8.1 注册 npm 账号"></a>3.8.1 注册 npm 账号</h4><ol>
+<li>访问 <a target="_blank" rel="noopener" href="https://www.npmjs.com/">https://www.npmjs.com/</a></li>
+<li>点击 <code>sign up</code></li>
+<li>填写 Full Name、Public Email、Username、Password</li>
+<li>完成邮箱验证</li>
+</ol>
+<h4 id="3-8-2-登录-npm-账号"><a href="#3-8-2-登录-npm-账号" class="headerlink" title="3.8.2 登录 npm 账号"></a>3.8.2 登录 npm 账号</h4><p>执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>关键注意：发布前，必须把 npm 源切回官方源，不能使用淘宝镜像源。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry=https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-8-3-发布包到-npm"><a href="#3-8-3-发布包到-npm" class="headerlink" title="3.8.3 发布包到 npm"></a>3.8.3 发布包到 npm</h4><p>进入包根目录后执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：<code>package.json</code> 中的 <code>name</code> 不能和 npm 已有包重名，否则发布失败。</p>
+</blockquote>
+<h4 id="3-8-4-删除已发布的包"><a href="#3-8-4-删除已发布的包" class="headerlink" title="3.8.4 删除已发布的包"></a>3.8.4 删除已发布的包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm unpublish 包名 --force</span><br></pre></td></tr></table></figure>
+
+<p>删除限制：</p>
+<ul>
+<li>仅能删除发布未满 72 小时的包</li>
+<li>被删除的包 24 小时内不能重新发布同名包</li>
+<li>谨慎发布，不要上传无实际意义的测试包</li>
+</ul>
+<p>发布完成后，如需恢复淘宝源：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry=https://registry.npm.taobao.org/</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -200,7 +533,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-05-29 17:56:39" itemprop="dateModified" datetime="2026-05-29T17:56:39+08:00">2026-05-29</time>
+      <time title="Modified: 2026-06-01 15:39:10" itemprop="dateModified" datetime="2026-06-01T15:39:10+08:00">2026-06-01</time>
     </span>
 
   
@@ -213,7 +546,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-Node-js-简介"><a href="#1-Node-js-简介" class="headerlink" title="1. Node.js 简介"></a>1. Node.js 简介</h2><h3 id="1-1-什么是-Node-js"><a href="#1-1-什么是-Node-js" class="headerlink" title="1.1 什么是 Node.js"></a>1.1 什么是 Node.js</h3><p>Node.js 是一个基于 Chrome V8 引擎构建的 JavaScript 运行环境，它让 JavaScript 不再局限于浏览器，而可以在服务器端、命令行、桌面应用等环境中运行。</p>
+          <h1 id="Node-js-初识"><a href="#Node-js-初识" class="headerlink" title="Node.js 初识"></a>Node.js 初识</h1><p>Node.js 是前端开发者走向后端的一座桥梁。它让 JavaScript 不再局限于浏览器，而可以直接访问文件系统、网络、进程等底层功能。</p>
+<h2 id="1-Node-js-简介"><a href="#1-Node-js-简介" class="headerlink" title="1. Node.js 简介"></a>1. Node.js 简介</h2><h3 id="1-1-什么是-Node-js"><a href="#1-1-什么是-Node-js" class="headerlink" title="1.1 什么是 Node.js"></a>1.1 什么是 Node.js</h3><p>Node.js 是一个基于 Chrome V8 引擎构建的 JavaScript 运行环境，它让 JavaScript 不再局限于浏览器，而可以在服务器端、命令行、桌面应用等环境中运行。</p>
 <ul>
 <li>Node.js 提供了文件系统、网络、进程等底层能力。</li>
 <li>它不是框架，而是一个运行时环境。</li>
@@ -242,7 +576,14 @@
 <li>npm 生态提供大量实用包</li>
 <li>能够扩展为全栈开发能力</li>
 </ul>
-<h3 id="1-4-node-js的学习路径"><a href="#1-4-node-js的学习路径" class="headerlink" title="1.4 node.js的学习路径"></a>1.4 node.js的学习路径</h3><p>javascript基础语法+ Node.js内置模块（fs,path,http等）+ 第三方API模块（express&#x2F;msSql等）</p>
+<h3 id="1-4-学习路径建议"><a href="#1-4-学习路径建议" class="headerlink" title="1.4 学习路径建议"></a>1.4 学习路径建议</h3><p>推荐的学习顺序：</p>
+<ol>
+<li>JavaScript 基础语法。</li>
+<li>Node.js 内置模块：<code>fs</code>、<code>path</code>、<code>http</code>。</li>
+<li>异步编程：回调、<code>Promise</code>、<code>async/await</code>。</li>
+<li>第三方框架：Express、Koa、NestJS。</li>
+<li>数据库连接、ORM、模块化项目结构。</li>
+</ol>
 <h2 id="2-Node-js-环境安装与验证"><a href="#2-Node-js-环境安装与验证" class="headerlink" title="2. Node.js 环境安装与验证"></a>2. Node.js 环境安装与验证</h2><h3 id="2-1-安装-Node-js"><a href="#2-1-安装-Node-js" class="headerlink" title="2.1 安装 Node.js"></a>2.1 安装 Node.js</h3><p>访问官网：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a></p>
 <p>建议安装 LTS（长期支持）版本，适合生产环境和学习使用；Current 版本适合尝鲜新特性，但可能出现兼容问题。</p>
 <h3 id="2-2-验证安装"><a href="#2-2-验证安装" class="headerlink" title="2.2 验证安装"></a>2.2 验证安装</h3><p>打开终端后执行：</p>
@@ -291,7 +632,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&#x27;./files/2.txt&#x27;</span>, <span class="string">&#x27;Hello Node.js&#x27;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;写入失败：&#x27;</span> + err.<span class="property">message</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件写入成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>注意：<code>fs.writeFile()</code> 默认会覆盖目标文件中的内容。<br>fs.writeFile() 方法只能创建文件，不能创建路径。</p>
+<p>注意：<code>fs.writeFile()</code> 默认会覆盖目标文件中的内容。<br><code>fs.writeFile()</code> 方法只能创建文件，不能创建路径。</p>
 </blockquote>
 <h3 id="3-4-同步方式和-Promise-方式"><a href="#3-4-同步方式和-Promise-方式" class="headerlink" title="3.4 同步方式和 Promise 方式"></a>3.4 同步方式和 Promise 方式</h3><p>Node.js 还支持同步读取：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = fs.<span class="title function_">readFileSync</span>(<span class="string">&#x27;./files/1.txt&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br></pre></td></tr></table></figure>
@@ -1451,114 +1792,6 @@
 <li>临时添加边框：给容器和项目添加不同颜色的边框，可以清晰地看到它们的边界和空间分配。</li>
 <li>分步骤调试：先让布局工作，再优化样式。一次只改变一个属性，观察效果。</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/31/2021-03-31-vue%E7%BB%84%E4%BB%B6%E9%97%B4%E4%BC%A0%E5%80%BC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="晓娜的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 晓娜的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/31/2021-03-31-vue%E7%BB%84%E4%BB%B6%E9%97%B4%E4%BC%A0%E5%80%BC/" class="post-title-link" itemprop="url">vue组件间传值.md</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-31 15:14:23" itemprop="dateCreated datePublished" datetime="2021-03-31T15:14:23+08:00">2021-03-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2021-04-03 17:20:00" itemprop="dateModified" datetime="2021-04-03T17:20:00+08:00">2021-04-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="vue组件传值方式："><a href="#vue组件传值方式：" class="headerlink" title="vue组件传值方式："></a>vue组件传值方式：</h3><ol>
-<li>props</li>
-<li>$emit</li>
-<li>vuex</li>
-<li>eventbus</li>
-<li>$parent &#x2F; $children &#x2F; ref传值</li>
-<li>$attrs</li>
-<li>$listeners</li>
-<li>provide &#x2F; inject</li>
-<li>Vue.observable</li>
-</ol>
-<h4 id="props"><a href="#props" class="headerlink" title="props"></a>props</h4><p>特点：父组件给子组件传值，<br>代码：<br><img src="https://freedomflyflower.github.io/images/2021-03-31-vue组件间传值/img1.png" width="50%"></p>
-<h4 id="emit"><a href="#emit" class="headerlink" title="$emit"></a>$emit</h4><p>特点：子组件给父组件传值<br>代码：<br><img src="https://freedomflyflower.github.io/images/2021-03-31-vue组件间传值/img2.png" width="50%"></p>
-<h4 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h4><p>特点：各组件传值<br>代码：<br><img src="https://freedomflyflower.github.io/images/2021-03-31-vue组件间传值/img3.png" width="50%"></p>
-<h4 id="eventbus"><a href="#eventbus" class="headerlink" title="eventbus"></a>eventbus</h4><p>特点：各组件传值</p>
-<p>实现全局事件总线对象的几种方式：</p>
-<h5 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h5><p>思路是 ：在main.js，我们在vue的原型上添加一个bus对象；在其他组件中触发和监听（推荐，单）<br>具体实现如下：下面的组件A和组件B可以是项目中任意两个组件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在mian.js中</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">bus</span> = <span class="keyword">new</span> <span class="title class_">Vue</span>()  <span class="comment">//这样我们就实现了全局的事件总线对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//组件A中，监听事件</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">bus</span>.$on(<span class="string">&#x27;updata&#x27;</span>, <span class="keyword">function</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data)  <span class="comment">//data就是触发updata事件带过来的数据</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//组件B中，触发事件</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">bus</span>.$emit(<span class="string">&#x27;updata&#x27;</span>, data)  <span class="comment">//data就是触发updata事件要带走的数据</span></span><br><span class="line">代码：</span><br></pre></td></tr></table></figure>
-
-<h5 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h5><p>实现思路： 新建一个bus.js文件， 在这个文件里实例化一下vue；然后在组件A和组件B中分别引入这个bus.js文件，将事件监听和事件触发都挂到bus.js这个实例上，这样就可以实现全局的监听与触发了。</p>
-<p>实现代码如下：</p>
-<p> bus.js文件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bus.js文件</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> <span class="title class_">Vue</span>()</span><br></pre></td></tr></table></figure>
-
-<p>组件A</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// 组件A ，监听事件send</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">import</span> <span class="title class_">Bus</span> <span class="keyword">from</span> <span class="string">&#x27;./bus.js&#x27;</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span> () &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: <span class="string">&#x27;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">created</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> _this = <span class="variable language_">this</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 用$on监听事件并接受数据</span></span></span><br><span class="line"><span class="language-javascript">      <span class="title class_">Bus</span>.$on(<span class="string">&#x27;send&#x27;</span>, <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        _this.<span class="property">name</span> = data</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span></span><br><span class="line"><span class="language-javascript">      &#125;)</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">methods</span>: &#123;&#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>组件B</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 组件B， 触发事件send</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;点击触发&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;onClick&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">import</span> <span class="title class_">Bus</span> <span class="keyword">from</span> <span class="string">&#x27;./bus.js&#x27;</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">data</span> () &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">elValue</span>: <span class="string">&#x27;我是B组件数据&#x27;</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 发送数据</span></span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">onClick</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title class_">Bus</span>.$emit(<span class="string">&#x27;send&#x27;</span>, <span class="variable language_">this</span>.<span class="property">elValue</span>)</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
 
       
     </div>

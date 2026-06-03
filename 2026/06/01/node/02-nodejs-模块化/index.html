@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="1. 模块化基础概念1.1 什么是模块化模块化是指解决一个复杂问题时，自顶向下逐层把系统划分成若干模块的过程。对于整个系统来说，模块是可组合、分解和更换的单元。 在编程领域，模块化就是遵守固定的规则，把一个大文件拆成独立并互相依赖的多个小模块。 1.2 模块化的好处 提高代码复用性 提高代码可维护性 支持按需加载  1.3 模块化规范模块化规范就是对代码进行模块化拆分与组合时需要遵守的规则：  规">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js学习指南-模块化">
+<meta property="og:url" content="http://example.com/2026/06/01/node/02-nodejs-%E6%A8%A1%E5%9D%97%E5%8C%96/index.html">
+<meta property="og:site_name" content="晓娜的个人博客">
+<meta property="og:description" content="1. 模块化基础概念1.1 什么是模块化模块化是指解决一个复杂问题时，自顶向下逐层把系统划分成若干模块的过程。对于整个系统来说，模块是可组合、分解和更换的单元。 在编程领域，模块化就是遵守固定的规则，把一个大文件拆成独立并互相依赖的多个小模块。 1.2 模块化的好处 提高代码复用性 提高代码可维护性 支持按需加载  1.3 模块化规范模块化规范就是对代码进行模块化拆分与组合时需要遵守的规则：  规">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-05-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-03T07:40:14.659Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="nodejs, 后端, JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2026/06/01/node/02-nodejs-%E6%A8%A1%E5%9D%97%E5%8C%96/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2026/06/01/node/02-nodejs-%E6%A8%A1%E5%9D%97%E5%8C%96/","path":"2026/06/01/node/02-nodejs-模块化/","title":"Node.js学习指南-模块化"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Node.js学习指南-模块化 | 晓娜的个人博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">晓娜的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">1. 模块化基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 什么是模块化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 模块化的好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 模块化规范</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Node-js-%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">2. Node.js 中的模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E6%A8%A1%E5%9D%97%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 模块的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97%EF%BC%9Arequire"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 加载模块：require()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E6%A8%A1%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 模块作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%A8%A1%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1 什么是模块作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-%E6%A8%A1%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2 模块作用域的好处</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E5%90%91%E5%A4%96%E5%85%B1%E4%BA%AB%E6%A8%A1%E5%9D%97%E6%88%90%E5%91%98"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 向外共享模块成员</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-1-module-%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.4.1.</span> <span class="nav-text">2.4.1 module 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-2-module-exports-%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.4.2 module.exports 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-3-%E5%85%B1%E4%BA%AB%E6%88%90%E5%91%98%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-number">2.4.3.</span> <span class="nav-text">2.4.3 共享成员的注意点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-4-exports-%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.4.4.</span> <span class="nav-text">2.4.4 exports 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-5-exports-%E4%B8%8E-module-exports-%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%AF%E5%8C%BA"><span class="nav-number">2.4.5.</span> <span class="nav-text">2.4.5 exports 与 module.exports 的使用误区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-CommonJS-%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 CommonJS 模块化规范</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-npm-%E4%B8%8E%E5%8C%85"><span class="nav-number">3.</span> <span class="nav-text">3. npm 与包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%8C%85"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8C%85"><span class="nav-number">3.1.1.</span> <span class="nav-text">3.1.1 什么是包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2-%E5%8C%85%E7%9A%84%E6%9D%A5%E6%BA%90"><span class="nav-number">3.1.2.</span> <span class="nav-text">3.1.2 包的来源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-3-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%8C%85"><span class="nav-number">3.1.3.</span> <span class="nav-text">3.1.3 为什么需要包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-4-%E4%BB%8E%E5%93%AA%E9%87%8C%E4%B8%8B%E8%BD%BD%E5%8C%85"><span class="nav-number">3.1.4.</span> <span class="nav-text">3.1.4 从哪里下载包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-5-%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E5%8C%85"><span class="nav-number">3.1.5.</span> <span class="nav-text">3.1.5 如何下载包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-npm-%E5%88%9D%E4%BD%93%E9%AA%8C"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 npm 初体验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%97%B6%E9%97%B4%E7%9A%84%E4%BC%A0%E7%BB%9F%E5%81%9A%E6%B3%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 格式化时间的传统做法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%97%B6%E9%97%B4%E7%9A%84%E9%AB%98%E7%BA%A7%E5%81%9A%E6%B3%95"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2 格式化时间的高级做法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-3-%E5%AE%89%E8%A3%85%E5%8C%85%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.3.</span> <span class="nav-text">3.2.3 安装包命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-4-%E5%AE%89%E8%A3%85%E5%90%8E%E6%96%B0%E5%A2%9E%E6%96%87%E4%BB%B6"><span class="nav-number">3.2.4.</span> <span class="nav-text">3.2.4 安装后新增文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-5-%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85"><span class="nav-number">3.2.5.</span> <span class="nav-text">3.2.5 指定版本安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-6-%E8%AF%AD%E4%B9%89%E5%8C%96%E7%89%88%E6%9C%AC%E8%A7%84%E8%8C%83"><span class="nav-number">3.2.6.</span> <span class="nav-text">3.2.6 语义化版本规范</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E5%8C%85%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 包管理配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-1-package-json-%E4%BD%9C%E7%94%A8"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1 package.json 作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-2-%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C%E9%97%AE%E9%A2%98"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.3.2 多人协作问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-3-%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BA-package-json"><span class="nav-number">3.3.3.</span> <span class="nav-text">3.3.3 快速创建 package.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-4-%E4%B8%80%E6%AC%A1%E6%80%A7%E5%AE%89%E8%A3%85%E6%89%80%E6%9C%89%E4%BE%9D%E8%B5%96"><span class="nav-number">3.3.4.</span> <span class="nav-text">3.3.4 一次性安装所有依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-5-%E5%8D%B8%E8%BD%BD%E5%8C%85"><span class="nav-number">3.3.5.</span> <span class="nav-text">3.3.5 卸载包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-6-devDependencies-%E8%8A%82%E7%82%B9"><span class="nav-number">3.3.6.</span> <span class="nav-text">3.3.6 devDependencies 节点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E8%A7%A3%E5%86%B3%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 解决下载依赖速度慢的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-1-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8B%E8%BD%BD%E6%85%A2"><span class="nav-number">3.4.1.</span> <span class="nav-text">3.4.1 为什么下载慢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-2-%E6%B7%98%E5%AE%9D-NPM-%E9%95%9C%E5%83%8F%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">3.4.2.</span> <span class="nav-text">3.4.2 淘宝 NPM 镜像服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-3-%E5%88%87%E6%8D%A2-npm-%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-number">3.4.3.</span> <span class="nav-text">3.4.3 切换 npm 镜像源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-4-nrm-%E5%B7%A5%E5%85%B7"><span class="nav-number">3.4.4.</span> <span class="nav-text">3.4.4 nrm 工具</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-%E5%8C%85%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 包的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-1-%E9%A1%B9%E7%9B%AE%E5%8C%85"><span class="nav-number">3.5.1.</span> <span class="nav-text">3.5.1 项目包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-2-%E5%85%A8%E5%B1%80%E5%8C%85"><span class="nav-number">3.5.2.</span> <span class="nav-text">3.5.2 全局包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-3-i5ting-toc-%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.5.3.</span> <span class="nav-text">3.5.3 i5ting_toc 示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-%E8%A7%84%E8%8C%83%E7%9A%84%E5%8C%85%E7%BB%93%E6%9E%84"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 规范的包结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-%E5%BC%80%E5%8F%91%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8C%85%EF%BC%88itheima-tools%EF%BC%89"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 开发自己的包（itheima-tools）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-1-%E9%9C%80%E8%A6%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-number">3.7.1.</span> <span class="nav-text">3.7.1 需要实现的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-2-%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.7.2.</span> <span class="nav-text">3.7.2 使用示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-3-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8C%85%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">3.7.3.</span> <span class="nav-text">3.7.3 初始化包目录结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-4-%E5%88%9D%E5%A7%8B%E5%8C%96-package-json"><span class="nav-number">3.7.4.</span> <span class="nav-text">3.7.4 初始化 package.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-5-index-js-%E5%8A%9F%E8%83%BD%E4%BB%A3%E7%A0%81"><span class="nav-number">3.7.5.</span> <span class="nav-text">3.7.5 index.js 功能代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-6-%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E5%8C%96%E6%8B%86%E5%88%86"><span class="nav-number">3.7.6.</span> <span class="nav-text">3.7.6 功能模块化拆分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-7-%E7%BC%96%E5%86%99-README-md"><span class="nav-number">3.7.7.</span> <span class="nav-text">3.7.7 编写 README.md</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-%E5%8F%91%E5%B8%83%E5%8C%85"><span class="nav-number">3.8.</span> <span class="nav-text">3.8 发布包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-1-%E6%B3%A8%E5%86%8C-npm-%E8%B4%A6%E5%8F%B7"><span class="nav-number">3.8.1.</span> <span class="nav-text">3.8.1 注册 npm 账号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-2-%E7%99%BB%E5%BD%95-npm-%E8%B4%A6%E5%8F%B7"><span class="nav-number">3.8.2.</span> <span class="nav-text">3.8.2 登录 npm 账号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-3-%E5%8F%91%E5%B8%83%E5%8C%85%E5%88%B0-npm"><span class="nav-number">3.8.3.</span> <span class="nav-text">3.8.3 发布包到 npm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-4-%E5%88%A0%E9%99%A4%E5%B7%B2%E5%8F%91%E5%B8%83%E7%9A%84%E5%8C%85"><span class="nav-number">3.8.4.</span> <span class="nav-text">3.8.4 删除已发布的包</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/06/01/node/02-nodejs-%E6%A8%A1%E5%9D%97%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Node.js学习指南-模块化 | 晓娜的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Node.js学习指南-模块化
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-06-01 00:00:00" itemprop="dateCreated datePublished" datetime="2026-06-01T00:00:00+08:00">2026-06-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-06-03 15:40:14" itemprop="dateModified" datetime="2026-06-03T15:40:14+08:00">2026-06-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="1-模块化基础概念"><a href="#1-模块化基础概念" class="headerlink" title="1. 模块化基础概念"></a>1. 模块化基础概念</h2><h3 id="1-1-什么是模块化"><a href="#1-1-什么是模块化" class="headerlink" title="1.1 什么是模块化"></a>1.1 什么是模块化</h3><p>模块化是指解决一个复杂问题时，自顶向下逐层把系统划分成若干模块的过程。对于整个系统来说，模块是可组合、分解和更换的单元。</p>
+<p>在编程领域，模块化就是遵守固定的规则，把一个大文件拆成独立并互相依赖的多个小模块。</p>
+<h3 id="1-2-模块化的好处"><a href="#1-2-模块化的好处" class="headerlink" title="1.2 模块化的好处"></a>1.2 模块化的好处</h3><ul>
+<li>提高代码复用性</li>
+<li>提高代码可维护性</li>
+<li>支持按需加载</li>
+</ul>
+<h3 id="1-3-模块化规范"><a href="#1-3-模块化规范" class="headerlink" title="1.3 模块化规范"></a>1.3 模块化规范</h3><p>模块化规范就是对代码进行模块化拆分与组合时需要遵守的规则：</p>
+<ul>
+<li>规定使用什么语法格式来引用模块</li>
+<li>规定在模块中使用什么语法格式向外暴露成员</li>
+</ul>
+<p>这样做的好处是：降低沟通成本，方便模块间相互调用。</p>
+<h2 id="2-Node-js-中的模块化"><a href="#2-Node-js-中的模块化" class="headerlink" title="2. Node.js 中的模块化"></a>2. Node.js 中的模块化</h2><h3 id="2-1-模块的分类"><a href="#2-1-模块的分类" class="headerlink" title="2.1 模块的分类"></a>2.1 模块的分类</h3><p>Node.js 根据模块来源，将模块分为三类：</p>
+<ul>
+<li>内置模块：Node.js 官方提供，如 <code>fs</code>、<code>path</code>、<code>http</code> 等</li>
+<li>自定义模块：用户创建的每个 <code>.js</code> 文件，都是自定义模块</li>
+<li>第三方模块：由第三方开发，需先下载才能使用</li>
+</ul>
+<h3 id="2-2-加载模块：require"><a href="#2-2-加载模块：require" class="headerlink" title="2.2 加载模块：require()"></a>2.2 加载模块：require()</h3><p>使用 <code>require()</code> 方法可以加载三类模块：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 加载内置模块</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 加载自定义模块</span></span><br><span class="line"><span class="keyword">const</span> custom = <span class="built_in">require</span>(<span class="string">&#x27;./custom.js&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 加载第三方模块</span></span><br><span class="line"><span class="keyword">const</span> moment = <span class="built_in">require</span>(<span class="string">&#x27;moment&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：使用 <code>require()</code> 加载模块时，会执行被加载模块中的代码。</p>
+</blockquote>
+<h3 id="2-3-模块作用域"><a href="#2-3-模块作用域" class="headerlink" title="2.3 模块作用域"></a>2.3 模块作用域</h3><h4 id="2-3-1-什么是模块作用域"><a href="#2-3-1-什么是模块作用域" class="headerlink" title="2.3.1 什么是模块作用域"></a>2.3.1 什么是模块作用域</h4><p>和函数作用域类似，在自定义模块中定义的变量、方法等成员，只能在当前模块内被访问，这种模块级别的访问限制，叫做模块作用域。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// custom.js</span></span><br><span class="line"><span class="keyword">const</span> username = <span class="string">&#x27;张三&#x27;</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sayHello</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;大家好! 我是&#x27;</span> + username)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">const</span> custom = <span class="built_in">require</span>(<span class="string">&#x27;./custom.js&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(custom) <span class="comment">// 输出 &#123;&#125;，无法访问模块内的私有成员</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-2-模块作用域的好处"><a href="#2-3-2-模块作用域的好处" class="headerlink" title="2.3.2 模块作用域的好处"></a>2.3.2 模块作用域的好处</h4><ul>
+<li>防止全局变量污染</li>
+</ul>
+<h3 id="2-4-向外共享模块成员"><a href="#2-4-向外共享模块成员" class="headerlink" title="2.4 向外共享模块成员"></a>2.4 向外共享模块成员</h3><h4 id="2-4-1-module-对象"><a href="#2-4-1-module-对象" class="headerlink" title="2.4.1 module 对象"></a>2.4.1 module 对象</h4><p>每个 <code>.js</code> 自定义模块中都有一个 <code>module</code> 对象，存储了和当前模块有关的信息：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">module</span>)</span><br><span class="line"><span class="comment">// 包含 id、path、exports、filename 等属性</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-2-module-exports-对象"><a href="#2-4-2-module-exports-对象" class="headerlink" title="2.4.2 module.exports 对象"></a>2.4.2 module.exports 对象</h4><p>在自定义模块中，可以使用 <code>module.exports</code> 将成员共享出去。外界用 <code>require()</code> 导入模块时，得到的就是 <code>module.exports</code> 指向的对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义模块</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">username</span> = <span class="string">&#x27;zs&#x27;</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">sayHello</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hello!&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入模块</span></span><br><span class="line"><span class="keyword">const</span> m = <span class="built_in">require</span>(<span class="string">&#x27;./自定义模块.js&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(m) <span class="comment">// &#123; username: &#x27;zs&#x27;, sayHello: [Function] &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-3-共享成员的注意点"><a href="#2-4-3-共享成员的注意点" class="headerlink" title="2.4.3 共享成员的注意点"></a>2.4.3 共享成员的注意点</h4><p><code>require()</code> 导入模块时，结果永远以 <code>module.exports</code> 指向的对象为准。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 示例：多次修改 module.exports</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">username</span> = <span class="string">&#x27;zs&#x27;</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">sayHello</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 让 module.exports 指向新对象，会覆盖之前的导出</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">nickname</span>: <span class="string">&#x27;小黑&#x27;</span>,</span><br><span class="line">  <span class="title function_">sayHi</span>(<span class="params"></span>) &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-4-exports-对象"><a href="#2-4-4-exports-对象" class="headerlink" title="2.4.4 exports 对象"></a>2.4.4 exports 对象</h4><p>为了简化代码，Node 提供了 <code>exports</code> 对象：</p>
+<ul>
+<li>默认情况下，<code>exports</code> 和 <code>module.exports</code> 指向同一个对象</li>
+<li>最终共享结果，还是以 <code>module.exports</code> 指向的对象为准</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 exports 简化导出</span></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">username</span> = <span class="string">&#x27;zs&#x27;</span></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">age</span> = <span class="number">20</span></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">sayHello</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123; <span class="comment">/* ... */</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-5-exports-与-module-exports-的使用误区"><a href="#2-4-5-exports-与-module-exports-的使用误区" class="headerlink" title="2.4.5 exports 与 module.exports 的使用误区"></a>2.4.5 exports 与 module.exports 的使用误区</h4><p>常见情况及导出结果：</p>
+<table>
+<thead>
+<tr>
+<th>代码示例</th>
+<th>导出结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>exports.username = &#39;zs&#39;; module.exports = { gender: &#39;男&#39;, age: 22 }</code></td>
+<td><code>{ gender: &#39;男&#39;, age: 22 }</code></td>
+</tr>
+<tr>
+<td><code>module.exports.username = &#39;zs&#39;; exports = { gender: &#39;男&#39;, age: 22 }</code></td>
+<td><code>{ username: &#39;zs&#39; }</code></td>
+</tr>
+<tr>
+<td><code>exports.username = &#39;zs&#39;; module.exports.gender = &#39;男&#39;</code></td>
+<td><code>{ username: &#39;zs&#39;, gender: &#39;男&#39; }</code></td>
+</tr>
+</tbody></table>
+<p>建议：不要在同一个模块中同时使用 <code>exports</code> 和 <code>module.exports</code>，以避免混乱。</p>
+<h3 id="2-5-CommonJS-模块化规范"><a href="#2-5-CommonJS-模块化规范" class="headerlink" title="2.5 CommonJS 模块化规范"></a>2.5 CommonJS 模块化规范</h3><p>Node.js 遵循 CommonJS 规范，规定如下：</p>
+<ul>
+<li>每个模块内部，<code>module</code> 变量代表当前模块</li>
+<li><code>module</code> 变量是一个对象，它的 <code>exports</code> 属性（即 <code>module.exports</code>）是对外的接口</li>
+<li>加载某个模块，其实是加载该模块的 <code>module.exports</code> 属性，<code>require()</code> 方法用于加载模块</li>
+</ul>
+<h2 id="3-npm-与包"><a href="#3-npm-与包" class="headerlink" title="3. npm 与包"></a>3. npm 与包</h2><h3 id="3-1-包"><a href="#3-1-包" class="headerlink" title="3.1 包"></a>3.1 包</h3><h4 id="3-1-1-什么是包"><a href="#3-1-1-什么是包" class="headerlink" title="3.1.1 什么是包"></a>3.1.1 什么是包</h4><p>Node.js 中的第三方模块又叫做包。就像“电脑”和“计算机”是同一个意思，包和第三方模块也是同一个概念，只是叫法不同。</p>
+<h4 id="3-1-2-包的来源"><a href="#3-1-2-包的来源" class="headerlink" title="3.1.2 包的来源"></a>3.1.2 包的来源</h4><p>不同于 Node.js 中的内置模块与自定义模块，包是由第三方个人或团队开发出来的，免费供所有人使用。</p>
+<blockquote>
+<p>注意：Node.js 中的包通常是免费且开源的，不需要付费即可下载使用。</p>
+</blockquote>
+<h4 id="3-1-3-为什么需要包"><a href="#3-1-3-为什么需要包" class="headerlink" title="3.1.3 为什么需要包"></a>3.1.3 为什么需要包</h4><p>由于 Node.js 的内置模块仅提供了一些底层 API，项目开发时效率较低。<br>包是对内置模块的进一步封装，提供更高级、更方便的 API，大幅提升开发效率。</p>
+<h4 id="3-1-4-从哪里下载包"><a href="#3-1-4-从哪里下载包" class="headerlink" title="3.1.4 从哪里下载包"></a>3.1.4 从哪里下载包</h4><p>npm, Inc. 旗下的网站 <code>https://www.npmjs.com/</code> 是全球最大的包共享平台。<br>包的真实下载地址是 <code>https://registry.npmjs.org/</code>。</p>
+<blockquote>
+<p>说明：</p>
+<ul>
+<li>在 <code>https://www.npmjs.com/</code> 上搜索包</li>
+<li>从 <code>https://registry.npmjs.org/</code> 下载包</li>
+</ul>
+</blockquote>
+<h4 id="3-1-5-如何下载包"><a href="#3-1-5-如何下载包" class="headerlink" title="3.1.5 如何下载包"></a>3.1.5 如何下载包</h4><p>npm 的包管理工具会随着 Node.js 安装一起安装。<br>可以在终端中执行<code>npm -v</code> 命令，来查看npm包管理工具的版本号：</p>
+<h3 id="3-2-npm-初体验"><a href="#3-2-npm-初体验" class="headerlink" title="3.2 npm 初体验"></a>3.2 npm 初体验</h3><h4 id="3-2-1-格式化时间的传统做法"><a href="#3-2-1-格式化时间的传统做法" class="headerlink" title="3.2.1 格式化时间的传统做法"></a>3.2.1 格式化时间的传统做法</h4><ul>
+<li>创建格式化时间的自定义模块</li>
+<li>定义格式化时间的方法</li>
+<li>创建补零函数</li>
+<li>从自定义模块导出格式化时间函数</li>
+<li>导入该模块并调用函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 格式化时间的传统做法.js</span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">TIME</span> = <span class="built_in">require</span>(<span class="string">&#x27;./13.dateFormat&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dt = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="keyword">const</span> newDT = <span class="variable constant_">TIME</span>.<span class="title function_">dateFormat</span>(dt)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(newDT)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//dateFormat.js</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">dateFormat</span>(<span class="params">dtStr</span>) &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">padZero</span>(<span class="params">n</span>) &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  dateFormat</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2-格式化时间的高级做法"><a href="#3-2-2-格式化时间的高级做法" class="headerlink" title="3.2.2 格式化时间的高级做法"></a>3.2.2 格式化时间的高级做法</h4><ol>
+<li>使用 npm 包管理工具，在项目中安装格式化时间包 <code>moment</code></li>
+<li>使用 <code>require()</code> 导入该包</li>
+<li>参考 <code>moment</code> 官方 API 文档进行格式化</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> moment = <span class="built_in">require</span>(<span class="string">&#x27;moment&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> dt = <span class="title function_">moment</span>().<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD HH:mm:ss&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dt)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-3-安装包命令"><a href="#3-2-3-安装包命令" class="headerlink" title="3.2.3 安装包命令"></a>3.2.3 安装包命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install 包的完整名称</span><br><span class="line"><span class="comment"># 可简写为：</span></span><br><span class="line">npm i 完整的包名称</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-4-安装后新增文件"><a href="#3-2-4-安装后新增文件" class="headerlink" title="3.2.4 安装后新增文件"></a>3.2.4 安装后新增文件</h4><p>初次安装包后，项目目录下会新增：</p>
+<ul>
+<li><code>node_modules</code> 文件夹：存放已安装的包</li>
+<li><code>package-lock.json</code>：记录依赖详细信息（包名、版本、下载地址等）</li>
+</ul>
+<blockquote>
+<p>注意：不要手动修改 <code>node_modules</code> 或 <code>package-lock.json</code>，npm 会自动维护它们。</p>
+</blockquote>
+<h4 id="3-2-5-指定版本安装"><a href="#3-2-5-指定版本安装" class="headerlink" title="3.2.5 指定版本安装"></a>3.2.5 指定版本安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i moment@2.22.2</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-6-语义化版本规范"><a href="#3-2-6-语义化版本规范" class="headerlink" title="3.2.6 语义化版本规范"></a>3.2.6 语义化版本规范</h4><p>版本号形式为 <code>X.Y.Z</code>：</p>
+<ul>
+<li><code>X</code>：大版本</li>
+<li><code>Y</code>：功能版本</li>
+<li><code>Z</code>：Bug 修复版本</li>
+</ul>
+<p>规则：前一位升级时，后面位数归零。</p>
+<h3 id="3-3-包管理配置文件"><a href="#3-3-包管理配置文件" class="headerlink" title="3.3 包管理配置文件"></a>3.3 包管理配置文件</h3><h4 id="3-3-1-package-json-作用"><a href="#3-3-1-package-json-作用" class="headerlink" title="3.3.1 package.json 作用"></a>3.3.1 package.json 作用</h4><p><code>package.json</code> 是 npm 项目根目录必须存在的配置文件，用于记录：</p>
+<ul>
+<li>项目名称、版本、描述</li>
+<li>项目依赖的包</li>
+<li>开发依赖与生产依赖</li>
+</ul>
+<h4 id="3-3-2-多人协作问题"><a href="#3-3-2-多人协作问题" class="headerlink" title="3.3.2 多人协作问题"></a>3.3.2 多人协作问题</h4><p><code>node_modules</code> 文件夹体积庞大，通常不纳入版本控制。<br>团队共享代码时，只需保留 <code>package.json</code> 和 <code>package-lock.json</code>，然后执行依赖安装。</p>
+<h4 id="3-3-3-快速创建-package-json"><a href="#3-3-3-快速创建-package-json" class="headerlink" title="3.3.3 快速创建 package.json"></a>3.3.3 快速创建 package.json</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>目录名建议为英文，避免中文和空格</li>
+<li>安装包时，npm 会自动写入 <code>package.json</code></li>
+</ul>
+</blockquote>
+<h4 id="3-3-4-一次性安装所有依赖"><a href="#3-3-4-一次性安装所有依赖" class="headerlink" title="3.3.4 一次性安装所有依赖"></a>3.3.4 一次性安装所有依赖</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line"><span class="comment"># 简写：</span></span><br><span class="line">npm i</span><br></pre></td></tr></table></figure>
+
+<p>原理：npm 读取 <code>package.json</code> 中的 <code>dependencies</code> 字段，批量下载依赖。</p>
+<h4 id="3-3-5-卸载包"><a href="#3-3-5-卸载包" class="headerlink" title="3.3.5 卸载包"></a>3.3.5 卸载包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall moment</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>卸载后，npm 会自动从 <code>dependencies</code> 中移除该包记录。</p>
+</blockquote>
+<h4 id="3-3-6-devDependencies-节点"><a href="#3-3-6-devDependencies-节点" class="headerlink" title="3.3.6 devDependencies 节点"></a>3.3.6 devDependencies 节点</h4><ul>
+<li><code>dependencies</code>：生产依赖，开发与上线都需要</li>
+<li><code>devDependencies</code>：开发依赖，仅本地开发使用，上线时不需要</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i 包名 -D</span><br><span class="line">npm install 包名 --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-解决下载依赖速度慢的问题"><a href="#3-4-解决下载依赖速度慢的问题" class="headerlink" title="3.4 解决下载依赖速度慢的问题"></a>3.4 解决下载依赖速度慢的问题</h3><h4 id="3-4-1-为什么下载慢"><a href="#3-4-1-为什么下载慢" class="headerlink" title="3.4.1 为什么下载慢"></a>3.4.1 为什么下载慢</h4><p>默认从国外 <code>https://registry.npmjs.org/</code> 下载，网络传输路径较长，导致速度慢。</p>
+<h4 id="3-4-2-淘宝-NPM-镜像服务器"><a href="#3-4-2-淘宝-NPM-镜像服务器" class="headerlink" title="3.4.2 淘宝 NPM 镜像服务器"></a>3.4.2 淘宝 NPM 镜像服务器</h4><p>淘宝搭建了国内镜像，同步官方 npm 数据，国内下载速度更快。</p>
+<h4 id="3-4-3-切换-npm-镜像源"><a href="#3-4-3-切换-npm-镜像源" class="headerlink" title="3.4.3 切换 npm 镜像源"></a>3.4.3 切换 npm 镜像源</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br><span class="line">npm config <span class="built_in">set</span> registry=https://registry.npm.taobao.org/</span><br><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-4-nrm-工具"><a href="#3-4-4-nrm-工具" class="headerlink" title="3.4.4 nrm 工具"></a>3.4.4 nrm 工具</h4><p><code>nrm</code> 是管理 npm 镜像源的工具。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i nrm -g</span><br><span class="line">nrm <span class="built_in">ls</span></span><br><span class="line">nrm use taobao</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-包的分类"><a href="#3-5-包的分类" class="headerlink" title="3.5 包的分类"></a>3.5 包的分类</h3><h4 id="3-5-1-项目包"><a href="#3-5-1-项目包" class="headerlink" title="3.5.1 项目包"></a>3.5.1 项目包</h4><p>安装到项目目录的包称为项目包，分为：</p>
+<ul>
+<li>开发依赖包：<code>npm i 包名 -D</code>，写入 <code>devDependencies</code>，仅开发阶段使用</li>
+<li>核心依赖包：<code>npm i 包名</code>，写入 <code>dependencies</code>，开发与线上都需要</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i 包名 -D   <span class="comment"># 开发依赖包（记录到 devDependencies ）</span></span><br><span class="line">npm i 包名      <span class="comment"># 核心依赖包（记录到 dependencies ）</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-5-2-全局包"><a href="#3-5-2-全局包" class="headerlink" title="3.5.2 全局包"></a>3.5.2 全局包</h4><p>加 <code>-g</code> 参数即为全局安装，默认路径（Windows）：<code>C:\Users\用户目录\AppData\Roaming\npm\node_modules</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i 包名 -g</span><br><span class="line">npm uninstall 包名 -g</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>只有工具类包适合全局安装（提供终端命令）</li>
+<li>是否全局安装以官方文档为准</li>
+</ul>
+</blockquote>
+<h4 id="3-5-3-i5ting-toc-示例"><a href="#3-5-3-i5ting-toc-示例" class="headerlink" title="3.5.3 i5ting_toc 示例"></a>3.5.3 i5ting_toc 示例</h4><p>作用：将 Markdown 文档批量转换为 HTML 页面。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g i5ting_toc</span><br><span class="line">i5ting_toc -f md文件路径 -o</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-6-规范的包结构"><a href="#3-6-规范的包结构" class="headerlink" title="3.6 规范的包结构"></a>3.6 规范的包结构</h3><p>规范的包必须满足三条规则：</p>
+<ul>
+<li>包独立存放在单独文件夹内</li>
+<li>包根目录必须存在 <code>package.json</code></li>
+<li><code>package.json</code> 必填字段：<code>name</code>、<code>version</code>、<code>main</code></li>
+</ul>
+<p>参考文档：<a target="_blank" rel="noopener" href="https://yarnpkg.com/zh-Hans/docs/package-json">https://yarnpkg.com/zh-Hans/docs/package-json</a></p>
+<h3 id="3-7-开发自己的包（itheima-tools）"><a href="#3-7-开发自己的包（itheima-tools）" class="headerlink" title="3.7 开发自己的包（itheima-tools）"></a>3.7 开发自己的包（itheima-tools）</h3><h4 id="3-7-1-需要实现的功能"><a href="#3-7-1-需要实现的功能" class="headerlink" title="3.7.1 需要实现的功能"></a>3.7.1 需要实现的功能</h4><ul>
+<li>格式化日期</li>
+<li>转义 HTML 中的特殊字符</li>
+<li>还原 HTML 中的特殊字符</li>
+</ul>
+<h4 id="3-7-2-使用示例"><a href="#3-7-2-使用示例" class="headerlink" title="3.7.2 使用示例"></a>3.7.2 使用示例</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> itheima = <span class="built_in">require</span>(<span class="string">&#x27;itheima-utils&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dt = itheima.<span class="title function_">dateFormat</span>(<span class="keyword">new</span> <span class="title class_">Date</span>())</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dt) <span class="comment">// 输出 2020-01-20 10:09:45</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> htmlStr = <span class="string">&#x27;&lt;h1 style=&quot;color: red;&quot;&gt;你好! &amp;copy;&lt;span&gt;小黄! &lt;/span&gt;&lt;/h1&gt;&#x27;</span></span><br><span class="line"><span class="keyword">const</span> str = itheima.<span class="title function_">htmlEscape</span>(htmlStr)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> rawHTML = itheima.<span class="title function_">htmlUnEscape</span>(str)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(rawHTML)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-7-3-初始化包目录结构"><a href="#3-7-3-初始化包目录结构" class="headerlink" title="3.7.3 初始化包目录结构"></a>3.7.3 初始化包目录结构</h4><ol>
+<li>新建 <code>itheima-tools</code> 文件夹作为包根目录</li>
+<li>根目录创建三个文件：<ul>
+<li><code>package.json</code></li>
+<li><code>index.js</code></li>
+<li><code>README.md</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="3-7-4-初始化-package-json"><a href="#3-7-4-初始化-package-json" class="headerlink" title="3.7.4 初始化 package.json"></a>3.7.4 初始化 package.json</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;itheima-tools&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;提供了格式化时间、HTMLEscape的功能&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;keywords&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;itheima&quot;</span><span class="punctuation">,</span> <span class="string">&quot;dateFormat&quot;</span><span class="punctuation">,</span> <span class="string">&quot;escape&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-7-5-index-js-功能代码"><a href="#3-7-5-index-js-功能代码" class="headerlink" title="3.7.5 index.js 功能代码"></a>3.7.5 index.js 功能代码</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">dateFormat</span>(<span class="params">dateStr</span>) &#123;</span><br><span class="line">  <span class="comment">// 省略实现代码</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">padZero</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> n &gt; <span class="number">9</span> ? n : <span class="string">&#x27;0&#x27;</span> + n</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">htmlEscape</span>(<span class="params">htmlStr</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> htmlStr.<span class="title function_">replace</span>(<span class="regexp">/&lt;|&gt;|\&quot;|&amp;/g</span>, <span class="function">(<span class="params">match</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (match) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&lt;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&amp;lt;&#x27;</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&gt;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&amp;gt;&#x27;</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;\&quot;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&amp;quot;&#x27;</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&amp;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&amp;amp;&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">htmlUnEscape</span>(<span class="params">str</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> str.<span class="title function_">replace</span>(<span class="regexp">/&amp;lt;|&amp;gt;|&amp;quot;|&amp;amp;/g</span>, <span class="function">(<span class="params">match</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (match) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&amp;lt;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&lt;&#x27;</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&amp;gt;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&gt;&#x27;</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&amp;quot;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;\&quot;&#x27;</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;&amp;amp;&#x27;</span>: <span class="keyword">return</span> <span class="string">&#x27;&amp;&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  dateFormat,</span><br><span class="line">  htmlEscape,</span><br><span class="line">  htmlUnEscape</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-7-6-功能模块化拆分"><a href="#3-7-6-功能模块化拆分" class="headerlink" title="3.7.6 功能模块化拆分"></a>3.7.6 功能模块化拆分</h4><ul>
+<li>新建 <code>src</code> 文件夹</li>
+<li><code>src/dateFormat.js</code>：存放日期格式化代码</li>
+<li><code>src/htmlEscape.js</code>：存放 HTML 转义与还原代码</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">const</span> date = <span class="built_in">require</span>(<span class="string">&#x27;./src/dateFormat&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="built_in">escape</span> = <span class="built_in">require</span>(<span class="string">&#x27;./src/htmlEscape&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  ...date,</span><br><span class="line">  ...<span class="built_in">escape</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-7-7-编写-README-md"><a href="#3-7-7-编写-README-md" class="headerlink" title="3.7.7 编写 README.md"></a>3.7.7 编写 README.md</h4><p><code>README.md</code> 是包的说明文档，用于描述：</p>
+<ul>
+<li>安装方式</li>
+<li>导入方式</li>
+<li>功能用法</li>
+<li>注意事项</li>
+<li>开源协议</li>
+</ul>
+<h3 id="3-8-发布包"><a href="#3-8-发布包" class="headerlink" title="3.8 发布包"></a>3.8 发布包</h3><h4 id="3-8-1-注册-npm-账号"><a href="#3-8-1-注册-npm-账号" class="headerlink" title="3.8.1 注册 npm 账号"></a>3.8.1 注册 npm 账号</h4><ol>
+<li>访问 <a target="_blank" rel="noopener" href="https://www.npmjs.com/">https://www.npmjs.com/</a></li>
+<li>点击 <code>sign up</code></li>
+<li>填写 Full Name、Public Email、Username、Password</li>
+<li>完成邮箱验证</li>
+</ol>
+<h4 id="3-8-2-登录-npm-账号"><a href="#3-8-2-登录-npm-账号" class="headerlink" title="3.8.2 登录 npm 账号"></a>3.8.2 登录 npm 账号</h4><p>执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>关键注意：发布前，必须把 npm 源切回官方源，不能使用淘宝镜像源。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry=https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-8-3-发布包到-npm"><a href="#3-8-3-发布包到-npm" class="headerlink" title="3.8.3 发布包到 npm"></a>3.8.3 发布包到 npm</h4><p>进入包根目录后执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：<code>package.json</code> 中的 <code>name</code> 不能和 npm 已有包重名，否则发布失败。</p>
+</blockquote>
+<h4 id="3-8-4-删除已发布的包"><a href="#3-8-4-删除已发布的包" class="headerlink" title="3.8.4 删除已发布的包"></a>3.8.4 删除已发布的包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm unpublish 包名 --force</span><br></pre></td></tr></table></figure>
+
+<p>删除限制：</p>
+<ul>
+<li>仅能删除发布未满 72 小时的包</li>
+<li>被删除的包 24 小时内不能重新发布同名包</li>
+<li>谨慎发布，不要上传无实际意义的测试包</li>
+</ul>
+<p>发布完成后，如需恢复淘宝源：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry=https://registry.npm.taobao.org/</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/nodejs-%E5%90%8E%E7%AB%AF-JavaScript/" rel="tag"># nodejs, 后端, JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/25/node/01-nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="Node.js学习指南-基础知识">
+                  <i class="fa fa-angle-left"></i> Node.js学习指南-基础知识
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
